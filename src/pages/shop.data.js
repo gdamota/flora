@@ -40,35 +40,35 @@ const SHOP_DATA = [
     routeName: "towels",
     items: [
       {
-        id: 1,
+        id: 6,
         name: "Blue",
         imageUrl:
           "https://images-na.ssl-images-amazon.com/images/I/51EDliuZmoL._AC_SX466_.jpg",
         price: 25
       },
       {
-        id: 2,
+        id: 6,
         name: "Black",
         imageUrl:
           "https://cdn.shopify.com/s/files/1/1728/2157/products/05-63519_GAIAM-NO-SLIP-YOGA-MAT-TOWEL-GRANITE_A.jpg?v=1615835569",
         price: 18
       },
       {
-        id: 3,
+        id: 7,
         name: "Red",
         imageUrl:
           "https://images-na.ssl-images-amazon.com/images/I/91vG7vN2aPL._AC_SL1500_.jpg",
         price: 35
       },
       {
-        id: 4,
+        id: 8,
         name: "Grey",
         imageUrl:
           "http://cdn.shopify.com/s/files/1/1068/4930/products/shandali-sticky-yoga-towel_700x550_grande.jpg?v=1452752128",
         price: 25
       },
       {
-        id: 5,
+        id: 9,
         name: "Green",
         imageUrl:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT54flQy5dHOSu5-jGs5tyC7nLSd8tlP5VoSA&usqp=CAU",
@@ -77,33 +77,33 @@ const SHOP_DATA = [
     ]
   },
   {
-    id: 4,
+    id: 3,
     title: "Yoga Mats",
     routeName: "mats",
     items: [
       {
-        id: 1,
+        id: 10,
         name: "Blue",
         imageUrl:
           "https://m.media-amazon.com/images/I/81xTckVQwgL._AC_SY355_.jpg",
         price: 25
       },
       {
-        id: 2,
+        id: 11,
         name: "Black",
         imageUrl:
           "https://images-na.ssl-images-amazon.com/images/I/61rO%2BhiwlOL._AC_SY550_.jpg",
         price: 18
       },
       {
-        id: 3,
+        id: 12,
         name: "Red",
         imageUrl:
           "https://target.scene7.com/is/image/Target/GUEST_ba6075f3-4424-43ce-8a03-24c8d78beaed",
         price: 35
       },
       {
-        id: 4,
+        id: 13,
         name: "Green",
         imageUrl:
           "https://www.home-fit.com/sites/default/files/jasmine-yoga-mat-neon-green-lrg_0.jpg",
@@ -117,28 +117,28 @@ const SHOP_DATA = [
     routeName: "bands",
     items: [
       {
-        id: 1,
+        id: 14,
         name: "Blue",
         imageUrl:
           "https://images-na.ssl-images-amazon.com/images/I/41R-4hitUsL._AC_SX425_.jpg",
         price: 25
       },
       {
-        id: 2,
+        id: 15,
         name: "Black",
         imageUrl:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5QXIUvbASmz_WpnakQ-0ZGE0yMlIJk-vnO-AllzIrlxHLgAgRnNtM_BpKvoQMqywZnM&usqp=CAU",
         price: 18
       },
       {
-        id: 3,
+        id: 16,
         name: "red",
         imageUrl:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3KSW4z2I6JYUkpnd1QB4H6po1KGaaOGEBkA&usqp=CAU",
         price: 35
       },
       {
-        id: 4,
+        id: 17,
         name: "yellow",
         imageUrl:
           "https://images.squarespace-cdn.com/content/v1/59da6fed017db2e1bf1170b8/1615292441254-5U43G1M65V1PXQNBEE2Z/ke17ZwdGBToddI8pDm48kNiEM88mrzHRsd1mQ3bxVct7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0s0XaMNjCqAzRibjnE_wBlkZ2axuMlPfqFLWy-3Tjp4nKScCHg1XF4aLsQJlo6oYbA/PSCbands-51.jpg?format=1000w",
