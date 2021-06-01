@@ -28,7 +28,7 @@ class SignIn extends React.Component {
       <div className="sign-in">
         <h2> I already have an account</h2>
         <span>Sign in with your email and password</span>
-        <form onSubmit={this.handleSubmit}>
+        <form className="sign-in-form" onSubmit={this.handleSubmit}>
           <FormInput
             name="email"
             type="email"
@@ -49,7 +49,7 @@ class SignIn extends React.Component {
             <FancyButton type="submit">Sign In</FancyButton>
             <FancyButton onClick={signInWithGoogle} isGoogleSignIn>
               {" "}
-              Sign In With Google{" "}
+              Google Sign In{" "}
             </FancyButton>
           </div>
         </form>
