@@ -1,61 +1,21 @@
-import React, {Component} from "react";
+import React from "react";
 import MenuItem from "./menu_item";
+import {connect} from "react-redux";
+import {createStructuredSelector} from "reselect";
+import {selectDirectorySections} from "../redux/directory/directory_selector";
 import "./styles/directory.scss";
 
-class Directory extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sections: [
-        {
-          title: "Blocks",
-          imageUrl:
-            "https://www.yogadirect.com/assets/images/Spring%20Foam%20Block.jpg",
-          id: 1,
-          link: "blocks"
-        },
-        {
-          title: "Towels",
-          imageUrl:
-            "https://www.ippinka.com/wp-content/uploads/2018/10/charcoal-yoga-towel-03.jpg",
-          id: 2
-        },
-        {
-          title: "Accessories",
-          imageUrl:
-            "https://i.etsystatic.com/13266670/r/il/16bb1b/1151970005/il_570xN.1151970005_auwy.jpg",
-          id: 3,
-          link: "accesories"
-        },
-        {
-          title: "Yoga Mats",
-          imageUrl:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRbF_7c1L08H__8IXnMmfEIs_WgG8_ocjpJA&usqp=CAU",
-          id: 4,
-          size: "large",
-          link: "mats"
-        },
-        {
-          title: "Resistance Bands",
-          imageUrl:
-            "http://cdn.shopify.com/s/files/1/1177/8032/products/setof4_grande.png?v=1586992520",
-          id: 5,
-          size: "large",
-          link: "mats"
-        }
-      ]
-    };
-  }
+const Directory = ({sections}) => {
+  return (
+    <div className="directory-menu">
+      {sections.map(({id, ...otherProps}) => (
+        <MenuItem key={id} {...otherProps} />
+      ))}
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div className="directory-menu">
-        {this.state.sections.map(({id, ...otherProps}) => (
-          <MenuItem key={id} {...otherProps} />
-        ))}
-      </div>
-    );
-  }
-}
-
-export default Directory;
+const mapStateToProps = createStructuredSelector({
+  sections: selectDirectorySections
+});
+export default connect(mapStateToProps)(Directory);
