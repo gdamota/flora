@@ -4,6 +4,7 @@ import HomePage from "./pages/homepage";
 import Shop from "./pages/shop";
 import SignInAndUp from "./pages/sign_in_and_up";
 import CheckoutPage from "./pages/checkout";
+import Contact from "./pages/contact";
 import Header from "./components/header";
 import {Route, Switch, Redirect} from "react-router-dom";
 import {auth} from "./firebase/firebase.utils";
@@ -31,6 +32,7 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={Shop} />
           <Route path="/checkout" component={CheckoutPage} />
+          <Route path="/contact" component={Contact} />
           <Route
             exact
             path="/signin"
@@ -52,4 +54,7 @@ const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

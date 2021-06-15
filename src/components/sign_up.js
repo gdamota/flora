@@ -40,7 +40,7 @@ class SignUp extends React.Component {
             type="text"
             value={this.state.name}
             handleChange={this.handleChange}
-            label="Name"
+            placeholder="Name"
             required
           />
           <FormInput
@@ -48,7 +48,7 @@ class SignUp extends React.Component {
             type="email"
             value={this.state.email}
             handleChange={this.handleChange}
-            label="Email"
+            placeholder="Email"
             required
           />
           <FormInput
@@ -56,7 +56,7 @@ class SignUp extends React.Component {
             type="password"
             value={this.state.password}
             handleChange={this.handleChange}
-            label="Password"
+            placeholder="Password"
             required
           />
           <FormInput
@@ -64,7 +64,7 @@ class SignUp extends React.Component {
             type="password"
             value={this.state.confirm}
             handleChange={this.handleChange}
-            label="Confirm Password"
+            placeholder="Confirm Password"
             required
           />
           <FancyButton type="submit" value="Submit Form">

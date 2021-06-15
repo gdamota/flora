@@ -16,14 +16,18 @@ export const selectShopItems = createSelector(
 );
 
 export const selectCollection = collectionUrlParam =>
-  createSelector([selectShopItems], collections =>
-    collections.find(
-      collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam]
-    )
+  createSelector(
+    [selectShopItems],
+    collections =>
+      collections.find(
+        collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam]
+      )
   );
 
-export const selectItem = urlParams => {
-  selectCollection(urlParams.categoryId).find(
-    item => item.id === urlParams.itemId
-  );
+export const selectItem = (state, urlParams) => {
+  return state.shop.collections
+    .find(
+      collection => collection.id === COLLECTION_ID_MAP[urlParams.categoryId]
+    )
+    .items.find(({id}) => id === parseInt(urlParams.itemId));
 };
