@@ -2,13 +2,25 @@ import React from "react";
 import FancyButton from "./fancy_button";
 import {connect} from "react-redux";
 import {addItem} from "../redux/cart/cart_actions";
+import {withRouter} from "react-router-dom";
 import "./styles/shopping_item.scss";
 
-const ShoppingItem = ({item, addItem}) => {
-  const {name, price, imageUrl} = item;
+const ShoppingItem = ({item, addItem, history, routeName, match}) => {
+  const {name, price, imageUrl, id} = item;
+  const onClickFunc = match => {
+    if (match.path === "/shop/:categoryId") {
+      return history.push(`/shop/${id}`);
+    } else {
+      return history.push(`/shop/${routeName}/${id}`);
+    }
+  };
   return (
     <div className="collection-item">
-      <div className="image" style={{backgroundImage: `url(${imageUrl})`}} />
+      <div
+        className="image"
+        style={{backgroundImage: `url(${imageUrl})`}}
+        onClick={onClickFunc}
+      />
       <div className="collection=footer">
         <span className="name">{name}</span>
         <span className="price">{price}</span>
@@ -24,4 +36,4 @@ const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item))
 });
 
-export default connect(null, mapDispatchToProps)(ShoppingItem);
+export default withRouter(connect(null, mapDispatchToProps)(ShoppingItem));

@@ -21,3 +21,9 @@ export const selectCollection = collectionUrlParam =>
       collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam]
     )
   );
+
+export const selectItem = urlParams => {
+  selectCollection(urlParams.categoryId).find(
+    item => item.id === urlParams.itemId
+  );
+};

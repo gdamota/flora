@@ -5,13 +5,13 @@ import {selectCollection} from "../redux/shop/shop_selector";
 import "./styles/category.scss";
 
 const CategoryPage = ({collection}) => {
-  const {title, items} = collection;
+  const {title, items, routeName} = collection;
   return (
     <div className="collection-page">
       <h2 className="title">{title}</h2>
       <div className="items">
         {items.map(item => (
-          <ShoppingItem key={item.id} item={item} />
+          <ShoppingItem key={item.id} item={item} routeName={routeName} />
         ))}
       </div>
     </div>
