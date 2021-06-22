@@ -2,40 +2,40 @@ const INITIAL_STATE = {
   collections: [
     {
       id: 1,
-      title: "BOUCKETZ",
+      title: "Bouquets",
       routeName: "blocks",
       items: [
         {
           id: 1,
-          name: "bucket 1",
+          name: "Bouquet",
           imageUrl: "/photos/flower1.jpg",
           price: 25,
           description: "A super awesome some french word"
         },
         {
           id: 2,
-          name: "bucket 2",
+          name: "Bouquet",
           imageUrl: "/photos/flower2.jpg",
           price: 20,
           description: "A super awesome some french word"
         },
         {
           id: 3,
-          name: "bucket 3",
+          name: "Bouquet",
           imageUrl: "/photos/flower3.jpg",
           price: 20,
           description: "A super awesome some french word"
         },
         {
           id: 4,
-          name: "bucket 4",
+          name: "Bouquet",
           imageUrl: "/photos/flower4.jpg",
           price: 20,
           description: "A super awesome some french word"
         },
         {
           id: 5,
-          name: "bucket 5",
+          name: "Bouquet",
           imageUrl: "/photos/flower5.jpg",
           price: 20,
           description: "A super awesome some french word"
