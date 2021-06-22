@@ -12,7 +12,12 @@ const ItemPage = ({item, addItem}) => {
     <div className="item-page">
       <div className="item-header">
         <h2 className="title">{name}</h2>
-        <img src={imageUrl} alt={name} width="250" height="300" />
+        <img
+          src={process.env.PUBLIC_URL + imageUrl}
+          alt={name}
+          width="500"
+          height="500"
+        />
         <div className="item-description">
           <p className="price">{"Price: $" + price}</p>
           <p className="description">{description}</p>
@@ -35,7 +40,4 @@ const mapStateToProps = (state, ownProps) => ({
   item: selectItem(state, ownProps.match.params)
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ItemPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemPage);

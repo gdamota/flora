@@ -18,12 +18,12 @@ const ShoppingItem = ({item, addItem, history, routeName, match}) => {
     <div className="collection-item">
       <div
         className="image"
-        style={{backgroundImage: `url(${imageUrl})`}}
+        style={{backgroundImage: `url(${process.env.PUBLIC_URL + imageUrl})`}}
         onClick={onClickFunc}
       />
       <div className="collection=footer">
-        <p className="name">{name}</p>
-        <p className="name">{"Price: $" + price}</p>
+        <span className="name">{name}</span>
+        <span className="price">{price}</span>
       </div>
       <FancyButton inverted onClick={() => addItem(item)}>
         Add to Cart
@@ -36,9 +36,4 @@ const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item))
 });
 
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps
-  )(ShoppingItem)
-);
+export default withRouter(connect(null, mapDispatchToProps)(ShoppingItem));

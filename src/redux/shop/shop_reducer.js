@@ -2,40 +2,43 @@ const INITIAL_STATE = {
   collections: [
     {
       id: 1,
-      title: "Blocks",
+      title: "BOUCKETZ",
       routeName: "blocks",
       items: [
         {
           id: 1,
-          name: "Blue Yoga Block",
-          imageUrl:
-            "https://i5.walmartimages.com/asr/9480d949-b9e5-446c-bc54-b90b7e443bc6_1.e18ed2d70fb56f61c01bd7305f4c9dd2.jpeg",
-          price: 20,
-          description: "A super awesome blue yoga block"
+          name: "bucket 1",
+          imageUrl: "/photos/flower1.jpg",
+          price: 25,
+          description: "A super awesome some french word"
         },
         {
           id: 2,
-          name: "Black Yoga Block",
-          imageUrl:
-            "https://sukhamat.com/wp-content/uploads/2020/04/4-6-9-Yoga-Block-Black.jpg",
+          name: "bucket 2",
+          imageUrl: "/photos/flower2.jpg",
           price: 20,
-          description: "A super awesome black yoga block"
+          description: "A super awesome some french word"
         },
         {
           id: 3,
-          name: "Brown Yoga Block",
-          imageUrl:
-            "https://www.yogadirect.com/assets/images/4-6-9-Foam-Yoga-Block-Dark-Chocolate.jpg",
+          name: "bucket 3",
+          imageUrl: "/photos/flower3.jpg",
           price: 20,
-          description: "A super awesome brown yoga block"
+          description: "A super awesome some french word"
         },
         {
           id: 4,
-          name: "Red Yoga Block",
-          imageUrl:
-            "https://www.yogadirect.com/assets/images/4-6-9-Foam-Yoga-Block-Vermillion.jpg",
+          name: "bucket 4",
+          imageUrl: "/photos/flower4.jpg",
           price: 20,
-          description: "A super awesome red yoga block"
+          description: "A super awesome some french word"
+        },
+        {
+          id: 5,
+          name: "bucket 5",
+          imageUrl: "/photos/flower5.jpg",
+          price: 20,
+          description: "A super awesome some french word"
         }
       ]
     },

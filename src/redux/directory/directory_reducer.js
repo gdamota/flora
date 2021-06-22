@@ -1,9 +1,8 @@
 const INITIAL_STATE = {
   sections: [
     {
-      title: "Blocks",
-      imageUrl:
-        "https://www.yogadirect.com/assets/images/Spring%20Foam%20Block.jpg",
+      title: "BOUQUETS",
+      imageUrl: "/photos/flower1.jpg",
       id: 1,
       linkUrl: "shop/blocks"
     },
