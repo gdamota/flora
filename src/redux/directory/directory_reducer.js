@@ -4,21 +4,21 @@ const INITIAL_STATE = {
       title: "Bouquets",
       imageUrl: "/photos/flower1.jpg",
       id: 1,
-      linkUrl: "shop/blocks"
+      linkUrl: "shop/bouquets"
     },
     {
       title: "Necklaces",
       imageUrl:
         "https://cdn.shopify.com/s/files/1/2036/8849/products/effy-necklace-yczbx94dd4.jpg?v=1552578988",
       id: 2,
-      linkUrl: "shop/towels"
+      linkUrl: "shop/necklaces"
     },
     {
       title: "Bracelets",
       imageUrl:
         "https://i.etsystatic.com/13266670/r/il/16bb1b/1151970005/il_570xN.1151970005_auwy.jpg",
       id: 3,
-      linkUrl: "shop/accessories"
+      linkUrl: "shop/bracelets"
     },
     {
       title: "Earings",
@@ -26,7 +26,7 @@ const INITIAL_STATE = {
         "https://images-na.ssl-images-amazon.com/images/I/51VDK6afYGL._AC_UY695_.jpg",
       id: 4,
       size: "large",
-      linkUrl: "shop/mats"
+      linkUrl: "shop/earings"
     },
     {
       title: "Flowers to Wear",
@@ -34,7 +34,7 @@ const INITIAL_STATE = {
         "https://images-na.ssl-images-amazon.com/images/I/61brlyX6EzL._SY355_.jpg",
       id: 5,
       size: "large",
-      linkUrl: "shop/bands"
+      linkUrl: "shop/wear"
     }
   ]
 };

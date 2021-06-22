@@ -1,11 +1,11 @@
 import {createSelector} from "reselect";
 
 const COLLECTION_ID_MAP = {
-  blocks: 1,
-  towels: 2,
-  mats: 3,
-  bands: 4,
-  accessories: 5
+  bouquets: 1,
+  necklaces: 2,
+  bracelets: 3,
+  earings: 4,
+  wear: 5
 };
 
 const selectShop = state => state.shop;

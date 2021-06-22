@@ -3,7 +3,7 @@ const INITIAL_STATE = {
     {
       id: 1,
       title: "Bouquets",
-      routeName: "blocks",
+      routeName: "bouquets",
       items: [
         {
           id: 1,
@@ -44,8 +44,8 @@ const INITIAL_STATE = {
     },
     {
       id: 2,
-      title: "Towels",
-      routeName: "towels",
+      title: "Necklaces",
+      routeName: "necklaces",
       items: [
         {
           id: 6,
@@ -91,8 +91,8 @@ const INITIAL_STATE = {
     },
     {
       id: 3,
-      title: "Yoga Mats",
-      routeName: "mats",
+      title: "Bracelets",
+      routeName: "bracelets",
       items: [
         {
           id: 11,
@@ -130,8 +130,8 @@ const INITIAL_STATE = {
     },
     {
       id: 4,
-      title: "Resistance Bands",
-      routeName: "bands",
+      title: "Earings",
+      routeName: "earings",
       items: [
         {
           id: 15,
@@ -169,8 +169,8 @@ const INITIAL_STATE = {
     },
     {
       id: 5,
-      title: "Accessories",
-      routeName: "accessories",
+      title: "Flowers to Wear",
+      routeName: "wear",
       items: [
         {
           id: 19,
