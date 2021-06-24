@@ -1,0 +1,28 @@
+# config
+/ampliy/#current-cloud-backend/
+/amplify/team-provider-info.json
+/amplify/backend/function/productApi/src/node_modules
+
+
+# pyenv
+.python-version
+
+# node_mods
+
+/node_modules
+
+# dotenv
+.env
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+# build dir
+/build
+
+
+
+# ZIP files
+*.zip

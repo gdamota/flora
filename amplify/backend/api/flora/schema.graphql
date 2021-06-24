@@ -1,0 +1,29 @@
+type Category @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  description: String
+}
+
+type Order @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  products: [String!]!
+  price: Float!
+  datetime: AWSDateTime!
+  status: String!
+  address: String!
+  zip_code: String!
+  city: String!
+  name: String!
+}
+
+type Product @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  description: String!
+  materials: [String!]!
+  cost: Float!
+  price: Float!
+  quantity: Int
+  category: ID
+  Category: Category @connection
+}

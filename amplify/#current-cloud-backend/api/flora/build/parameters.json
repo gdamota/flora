@@ -1,0 +1,5 @@
+{
+    "CreateAPIKey": 1,
+    "S3DeploymentBucket": "amplify-flora-staging-193730-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/ae072fedc4830d0a12b621897b2ad19761e1c12b"
+}

@@ -1,0 +1,95 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-flora-staging-193730-authRole",
+      "UnauthRoleArn": "arn:aws:iam::127329511965:role/amplify-flora-staging-193730-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::127329511965:role/amplify-flora-staging-193730-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-flora-staging-193730-deployment",
+      "UnauthRoleName": "amplify-flora-staging-193730-unauthRole",
+      "StackName": "amplify-flora-staging-193730",
+      "StackId": "arn:aws:cloudformation:us-east-1:127329511965:stack/amplify-flora-staging-193730/72f16560-d45a-11eb-bc17-0eb337012115",
+      "AmplifyAppId": "d36on50haw6tc8",
+      "AuthTriggerTemplateURL": ""
+    }
+  },
+  "api": {
+    "flora": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "mjgarmju6negfdbsvns74kpore",
+        "GraphQLAPIEndpointOutput": "https://st4vww6t4jfd7ovcdhagb2y25y.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-zu56mpwlsneqlpc65g2rzfqzwm"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiflora"
+      },
+      "lastPushTimeStamp": "2021-06-24T15:14:35.482Z",
+      "lastPushDirHash": "j3rhkoAcXQeOYCzj2qEIihkpBEs="
+    }
+  },
+  "function": {
+    "productApi": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2021-06-24T15:09:26.055Z",
+      "lastPackageTimeStamp": "2021-06-24T15:09:26.683Z",
+      "distZipFilename": "productApi-744b76444a783735426f-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-flora-staging-193730-deployment",
+        "s3Key": "amplify-builds/productApi-744b76444a783735426f-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/function/productApi-cloudformation-template.json",
+        "logicalId": "functionproductApi"
+      },
+      "lastPushTimeStamp": "2021-06-24T15:14:35.482Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:127329511965:function:productApi-staging",
+        "Name": "productApi-staging",
+        "LambdaExecutionRole": "floraLambdaRole82bdb032-staging"
+      },
+      "lastPushDirHash": "7YyR0FIOYLJZ1fEHLPbmd2E8HGU="
+    }
+  },
+  "auth": {
+    "cognito593ffb88": {
+      "service": "Cognito",
+      "serviceType": "managed",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/auth/cognito593ffb88-cloudformation-template.yml",
+        "logicalId": "authcognito593ffb88"
+      },
+      "lastPushTimeStamp": "2021-06-24T15:14:35.482Z",
+      "output": {
+        "UserPoolId": "us-east-1_d7cTLf68V",
+        "AppClientIDWeb": "4e2sldc4cncm7j139h80l2j2jj",
+        "AppClientID": "2ol57s0g7p6j25hspvfcc2b64g",
+        "IdentityPoolId": "us-east-1:6c47db68-6d17-469b-8fb6-0ea7f8687460",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:127329511965:userpool/us-east-1_d7cTLf68V",
+        "IdentityPoolName": "flora_identitypool_593ffb88__staging",
+        "UserPoolName": "flora_userpool_593ffb88"
+      },
+      "lastPushDirHash": "z7Nby2+blxbzCvh/ZTkfWte3xMg="
+    }
+  }
+}

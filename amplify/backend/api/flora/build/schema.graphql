@@ -1,0 +1,319 @@
+type Category @aws_iam @aws_api_key {
+  id: ID!
+  name: String
+  description: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type Order @aws_iam @aws_api_key {
+  id: ID!
+  products: [String!]!
+  price: Float!
+  datetime: AWSDateTime!
+  status: String!
+  address: String!
+  zip_code: String!
+  city: String!
+  name: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type Product @aws_iam @aws_api_key {
+  id: ID!
+  name: String!
+  description: String!
+  materials: [String!]!
+  cost: Float!
+  price: Float!
+  quantity: Int
+  category: ID
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  Category: Category @aws_iam @aws_api_key
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelCategoryConnection @aws_api_key @aws_iam {
+  items: [Category]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelCategoryFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  description: ModelStringInput
+  and: [ModelCategoryFilterInput]
+  or: [ModelCategoryFilterInput]
+  not: ModelCategoryFilterInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Query {
+  getCategory(id: ID!): Category @aws_api_key @aws_iam
+  listCategorys(filter: ModelCategoryFilterInput, limit: Int, nextToken: String): ModelCategoryConnection @aws_api_key @aws_iam
+  getOrder(id: ID!): Order @aws_api_key @aws_iam
+  listOrders(filter: ModelOrderFilterInput, limit: Int, nextToken: String): ModelOrderConnection @aws_api_key @aws_iam
+  getProduct(id: ID!): Product @aws_api_key @aws_iam
+  listProducts(filter: ModelProductFilterInput, limit: Int, nextToken: String): ModelProductConnection @aws_api_key @aws_iam
+}
+
+input CreateCategoryInput {
+  id: ID
+  name: String
+  description: String
+}
+
+input UpdateCategoryInput {
+  id: ID!
+  name: String
+  description: String
+}
+
+input DeleteCategoryInput {
+  id: ID!
+}
+
+type Mutation {
+  createCategory(input: CreateCategoryInput!, condition: ModelCategoryConditionInput): Category @aws_api_key @aws_iam
+  updateCategory(input: UpdateCategoryInput!, condition: ModelCategoryConditionInput): Category @aws_api_key @aws_iam
+  deleteCategory(input: DeleteCategoryInput!, condition: ModelCategoryConditionInput): Category @aws_api_key @aws_iam
+  createOrder(input: CreateOrderInput!, condition: ModelOrderConditionInput): Order @aws_api_key @aws_iam
+  updateOrder(input: UpdateOrderInput!, condition: ModelOrderConditionInput): Order @aws_api_key @aws_iam
+  deleteOrder(input: DeleteOrderInput!, condition: ModelOrderConditionInput): Order @aws_api_key @aws_iam
+  createProduct(input: CreateProductInput!, condition: ModelProductConditionInput): Product @aws_api_key @aws_iam
+  updateProduct(input: UpdateProductInput!, condition: ModelProductConditionInput): Product @aws_api_key @aws_iam
+  deleteProduct(input: DeleteProductInput!, condition: ModelProductConditionInput): Product @aws_api_key @aws_iam
+}
+
+input ModelCategoryConditionInput {
+  name: ModelStringInput
+  description: ModelStringInput
+  and: [ModelCategoryConditionInput]
+  or: [ModelCategoryConditionInput]
+  not: ModelCategoryConditionInput
+}
+
+type Subscription {
+  onCreateCategory: Category @aws_subscribe(mutations: ["createCategory"]) @aws_api_key @aws_iam
+  onUpdateCategory: Category @aws_subscribe(mutations: ["updateCategory"]) @aws_api_key @aws_iam
+  onDeleteCategory: Category @aws_subscribe(mutations: ["deleteCategory"]) @aws_api_key @aws_iam
+  onCreateOrder: Order @aws_subscribe(mutations: ["createOrder"]) @aws_api_key @aws_iam
+  onUpdateOrder: Order @aws_subscribe(mutations: ["updateOrder"]) @aws_api_key @aws_iam
+  onDeleteOrder: Order @aws_subscribe(mutations: ["deleteOrder"]) @aws_api_key @aws_iam
+  onCreateProduct: Product @aws_subscribe(mutations: ["createProduct"]) @aws_api_key @aws_iam
+  onUpdateProduct: Product @aws_subscribe(mutations: ["updateProduct"]) @aws_api_key @aws_iam
+  onDeleteProduct: Product @aws_subscribe(mutations: ["deleteProduct"]) @aws_api_key @aws_iam
+}
+
+type ModelOrderConnection @aws_api_key @aws_iam {
+  items: [Order]
+  nextToken: String
+}
+
+input ModelOrderFilterInput {
+  id: ModelIDInput
+  products: ModelStringInput
+  price: ModelFloatInput
+  datetime: ModelStringInput
+  status: ModelStringInput
+  address: ModelStringInput
+  zip_code: ModelStringInput
+  city: ModelStringInput
+  name: ModelStringInput
+  and: [ModelOrderFilterInput]
+  or: [ModelOrderFilterInput]
+  not: ModelOrderFilterInput
+}
+
+input CreateOrderInput {
+  id: ID
+  products: [String!]!
+  price: Float!
+  datetime: AWSDateTime!
+  status: String!
+  address: String!
+  zip_code: String!
+  city: String!
+  name: String!
+}
+
+input UpdateOrderInput {
+  id: ID!
+  products: [String!]
+  price: Float
+  datetime: AWSDateTime
+  status: String
+  address: String
+  zip_code: String
+  city: String
+  name: String
+}
+
+input DeleteOrderInput {
+  id: ID!
+}
+
+input ModelOrderConditionInput {
+  products: ModelStringInput
+  price: ModelFloatInput
+  datetime: ModelStringInput
+  status: ModelStringInput
+  address: ModelStringInput
+  zip_code: ModelStringInput
+  city: ModelStringInput
+  name: ModelStringInput
+  and: [ModelOrderConditionInput]
+  or: [ModelOrderConditionInput]
+  not: ModelOrderConditionInput
+}
+
+type ModelProductConnection @aws_api_key @aws_iam {
+  items: [Product]
+  nextToken: String
+}
+
+input ModelProductFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  description: ModelStringInput
+  materials: ModelStringInput
+  cost: ModelFloatInput
+  price: ModelFloatInput
+  quantity: ModelIntInput
+  category: ModelIDInput
+  and: [ModelProductFilterInput]
+  or: [ModelProductFilterInput]
+  not: ModelProductFilterInput
+}
+
+input CreateProductInput {
+  id: ID
+  name: String!
+  description: String!
+  materials: [String!]!
+  cost: Float!
+  price: Float!
+  quantity: Int
+  category: ID
+  productCategoryId: ID
+}
+
+input UpdateProductInput {
+  id: ID!
+  name: String
+  description: String
+  materials: [String!]
+  cost: Float
+  price: Float
+  quantity: Int
+  category: ID
+  productCategoryId: ID
+}
+
+input DeleteProductInput {
+  id: ID!
+}
+
+input ModelProductConditionInput {
+  name: ModelStringInput
+  description: ModelStringInput
+  materials: ModelStringInput
+  cost: ModelFloatInput
+  price: ModelFloatInput
+  quantity: ModelIntInput
+  category: ModelIDInput
+  and: [ModelProductConditionInput]
+  or: [ModelProductConditionInput]
+  not: ModelProductConditionInput
+}
