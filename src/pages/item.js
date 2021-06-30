@@ -19,8 +19,8 @@ const ItemPage = ({item, addItem}) => {
           height="500"
         />
         <div className="item-description">
-          <p className="price">{"Price: $" + price}</p>
           <p className="description">{description}</p>
+          <p className="price">{"Price: $" + price}</p>
         </div>
       </div>
       <div className="checkout-button">
@@ -40,4 +40,7 @@ const mapStateToProps = (state, ownProps) => ({
   item: selectItem(state, ownProps.match.params)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemPage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ItemPage);

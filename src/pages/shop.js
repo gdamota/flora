@@ -1,12 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Route} from "react-router-dom";
 import CollectionsOverview from "../components/collections_overview";
 import CategoryPage from "./category";
-
 import ItemPage from "./item";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import * as directoryActions from "../redux/directory/directory_actions";
 
-const Shop = ({match}) => {
-  console.log(match);
+const Shop = ({match, directoryActions}) => {
+  useEffect(() => {
+    directoryActions.getCategorys();
+  });
   return (
     <div className="shop-page">
       <Route exact path={`${match.path}`} component={CollectionsOverview} />
@@ -20,4 +24,13 @@ const Shop = ({match}) => {
   );
 };
 
-export default Shop;
+function mapDispatchToProps(dispatch) {
+  return {
+    directoryActions: bindActionCreators(directoryActions, dispatch)
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Shop);

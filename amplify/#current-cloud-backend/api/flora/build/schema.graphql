@@ -1,9 +1,12 @@
 type Category @aws_iam @aws_api_key {
   id: ID!
-  name: String
-  description: String
+  title: String
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
+  Products(filter: ModelProductFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelProductConnection @aws_iam @aws_api_key
 }
 
 type Order @aws_iam @aws_api_key {
@@ -16,6 +19,9 @@ type Order @aws_iam @aws_api_key {
   zip_code: String!
   city: String!
   name: String!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
@@ -24,11 +30,13 @@ type Product @aws_iam @aws_api_key {
   id: ID!
   name: String!
   description: String!
-  materials: [String!]!
   cost: Float!
   price: Float!
   quantity: Int
-  category: ID
+  categoryID: ID
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
   Category: Category @aws_iam @aws_api_key
@@ -42,6 +50,7 @@ enum ModelSortDirection {
 type ModelCategoryConnection @aws_api_key @aws_iam {
   items: [Category]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelStringInput {
@@ -119,8 +128,7 @@ input ModelSizeInput {
 
 input ModelCategoryFilterInput {
   id: ModelIDInput
-  name: ModelStringInput
-  description: ModelStringInput
+  title: ModelStringInput
   and: [ModelCategoryFilterInput]
   or: [ModelCategoryFilterInput]
   not: ModelCategoryFilterInput
@@ -142,26 +150,30 @@ enum ModelAttributeTypes {
 type Query {
   getCategory(id: ID!): Category @aws_api_key @aws_iam
   listCategorys(filter: ModelCategoryFilterInput, limit: Int, nextToken: String): ModelCategoryConnection @aws_api_key @aws_iam
+  syncCategories(filter: ModelCategoryFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelCategoryConnection @aws_api_key @aws_iam
   getOrder(id: ID!): Order @aws_api_key @aws_iam
   listOrders(filter: ModelOrderFilterInput, limit: Int, nextToken: String): ModelOrderConnection @aws_api_key @aws_iam
+  syncOrders(filter: ModelOrderFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelOrderConnection @aws_api_key @aws_iam
   getProduct(id: ID!): Product @aws_api_key @aws_iam
   listProducts(filter: ModelProductFilterInput, limit: Int, nextToken: String): ModelProductConnection @aws_api_key @aws_iam
+  syncProducts(filter: ModelProductFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelProductConnection @aws_api_key @aws_iam
 }
 
 input CreateCategoryInput {
   id: ID
-  name: String
-  description: String
+  title: String
+  _version: Int
 }
 
 input UpdateCategoryInput {
   id: ID!
-  name: String
-  description: String
+  title: String
+  _version: Int
 }
 
 input DeleteCategoryInput {
   id: ID!
+  _version: Int
 }
 
 type Mutation {
@@ -177,8 +189,7 @@ type Mutation {
 }
 
 input ModelCategoryConditionInput {
-  name: ModelStringInput
-  description: ModelStringInput
+  title: ModelStringInput
   and: [ModelCategoryConditionInput]
   or: [ModelCategoryConditionInput]
   not: ModelCategoryConditionInput
@@ -199,6 +210,7 @@ type Subscription {
 type ModelOrderConnection @aws_api_key @aws_iam {
   items: [Order]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelOrderFilterInput {
@@ -226,6 +238,7 @@ input CreateOrderInput {
   zip_code: String!
   city: String!
   name: String!
+  _version: Int
 }
 
 input UpdateOrderInput {
@@ -238,10 +251,12 @@ input UpdateOrderInput {
   zip_code: String
   city: String
   name: String
+  _version: Int
 }
 
 input DeleteOrderInput {
   id: ID!
+  _version: Int
 }
 
 input ModelOrderConditionInput {
@@ -261,17 +276,17 @@ input ModelOrderConditionInput {
 type ModelProductConnection @aws_api_key @aws_iam {
   items: [Product]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelProductFilterInput {
   id: ModelIDInput
   name: ModelStringInput
   description: ModelStringInput
-  materials: ModelStringInput
   cost: ModelFloatInput
   price: ModelFloatInput
   quantity: ModelIntInput
-  category: ModelIDInput
+  categoryID: ModelIDInput
   and: [ModelProductFilterInput]
   or: [ModelProductFilterInput]
   not: ModelProductFilterInput
@@ -281,11 +296,11 @@ input CreateProductInput {
   id: ID
   name: String!
   description: String!
-  materials: [String!]!
   cost: Float!
   price: Float!
   quantity: Int
-  category: ID
+  categoryID: ID
+  _version: Int
   productCategoryId: ID
 }
 
@@ -293,26 +308,26 @@ input UpdateProductInput {
   id: ID!
   name: String
   description: String
-  materials: [String!]
   cost: Float
   price: Float
   quantity: Int
-  category: ID
+  categoryID: ID
+  _version: Int
   productCategoryId: ID
 }
 
 input DeleteProductInput {
   id: ID!
+  _version: Int
 }
 
 input ModelProductConditionInput {
   name: ModelStringInput
   description: ModelStringInput
-  materials: ModelStringInput
   cost: ModelFloatInput
   price: ModelFloatInput
   quantity: ModelIntInput
-  category: ModelIDInput
+  categoryID: ModelIDInput
   and: [ModelProductConditionInput]
   or: [ModelProductConditionInput]
   not: ModelProductConditionInput

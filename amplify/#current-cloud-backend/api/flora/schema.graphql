@@ -1,7 +1,7 @@
 type Category @model @auth(rules: [{allow: public}]) {
   id: ID!
-  name: String
-  description: String
+  title: String
+  Products: [Product] @connection(keyName: "byCategory", fields: ["id"])
 }
 
 type Order @model @auth(rules: [{allow: public}]) {
@@ -16,14 +16,14 @@ type Order @model @auth(rules: [{allow: public}]) {
   name: String!
 }
 
-type Product @model @auth(rules: [{allow: public}]) {
+type Product @model @auth(rules: [{allow: public}]) @key(name: "byCategory", fields: ["categoryID"]) {
   id: ID!
   name: String!
   description: String!
-  materials: [String!]!
   cost: Float!
   price: Float!
   quantity: Int
-  category: ID
   Category: Category @connection
+  categoryID: ID
 }
+ 

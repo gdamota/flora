@@ -1,3 +1,9 @@
+#set( $optionalNonNullableFields = [] )
+#foreach( $field in $optionalNonNullableFields )
+  #if( $context.arguments.input.keySet().contains($field) && $util.isNull($context.args.input.get($field)) )
+$util.error("An argument you marked as Non-Null is set to Null in the query or the body of your request.")
+  #end
+#end
 #if( $authCondition && $authCondition.expression != "" )
   #set( $condition = $authCondition )
   #if( $modelObjectKey )
@@ -61,12 +67,12 @@ $util.qr($context.args.input.put("__typename", "Category"))
 #set( $expAdd = {} )
 #set( $expRemove = [] )
 #if( $modelObjectKey )
-  #set( $keyFields = [] )
+  #set( $keyFields = ["_version", "_deleted", "_lastChangedAt"] )
   #foreach( $entry in $modelObjectKey.entrySet() )
     $util.qr($keyFields.add("$entry.key"))
   #end
 #else
-  #set( $keyFields = ["id"] )
+  #set( $keyFields = ["id", "_version", "_deleted", "_lastChangedAt"] )
 #end
 #foreach( $entry in $util.map.copyAndRemoveAllKeys($context.args.input, $keyFields).entrySet() )
   #if( !$util.isNull($dynamodbNameOverrideMap) && $dynamodbNameOverrideMap.containsKey("$entry.key") )
@@ -128,5 +134,6 @@ $util.qr($update.put("expression", "$expression"))
   }
 } #end,
   "update": $util.toJson($update),
-  "condition": $util.toJson($condition)
+  "condition": $util.toJson($condition),
+  "_version": $util.defaultIfNull($ctx.args.input["_version"], "0")
 }

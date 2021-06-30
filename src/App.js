@@ -10,9 +10,8 @@ import {Route, Switch, Redirect} from "react-router-dom";
 import {auth} from "./firebase/firebase.utils";
 import {connect} from "react-redux";
 import {setCurrentUser} from "./redux/user/user_actions";
-import Amplify, {API, graphqlOperation} from "aws-amplify";
+import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
-import {listCategorys} from "./graphql/queries";
 
 Amplify.configure(awsconfig);
 

@@ -8,10 +8,16 @@ export const createCategory = /* GraphQL */ `
   ) {
     createCategory(input: $input, condition: $condition) {
       id
-      name
-      description
+      title
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      Products {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -22,10 +28,16 @@ export const updateCategory = /* GraphQL */ `
   ) {
     updateCategory(input: $input, condition: $condition) {
       id
-      name
-      description
+      title
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      Products {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -36,10 +48,16 @@ export const deleteCategory = /* GraphQL */ `
   ) {
     deleteCategory(input: $input, condition: $condition) {
       id
-      name
-      description
+      title
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
+      Products {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -58,6 +76,9 @@ export const createOrder = /* GraphQL */ `
       zip_code
       city
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -78,6 +99,9 @@ export const updateOrder = /* GraphQL */ `
       zip_code
       city
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -98,6 +122,9 @@ export const deleteOrder = /* GraphQL */ `
       zip_code
       city
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -112,17 +139,21 @@ export const createProduct = /* GraphQL */ `
       id
       name
       description
-      materials
       cost
       price
       quantity
-      category
+      categoryID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Category {
         id
-        name
-        description
+        title
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -138,17 +169,21 @@ export const updateProduct = /* GraphQL */ `
       id
       name
       description
-      materials
       cost
       price
       quantity
-      category
+      categoryID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Category {
         id
-        name
-        description
+        title
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -164,17 +199,21 @@ export const deleteProduct = /* GraphQL */ `
       id
       name
       description
-      materials
       cost
       price
       quantity
-      category
+      categoryID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Category {
         id
-        name
-        description
+        title
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
