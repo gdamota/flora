@@ -8,9 +8,12 @@ import {bindActionCreators} from "redux";
 import * as directoryActions from "../redux/directory/directory_actions";
 
 const Shop = ({match, directoryActions}) => {
-  useEffect(() => {
-    directoryActions.getCategorys();
-  });
+  useEffect(
+    () => {
+      directoryActions.getCategorys();
+    },
+    [directoryActions]
+  );
   return (
     <div className="shop-page">
       <Route exact path={`${match.path}`} component={CollectionsOverview} />

@@ -22,8 +22,7 @@ const ShoppingItem = ({item, addItem, history, routeName, match}) => {
         onClick={onClickFunc}
       />
       <div className="collection=footer">
-        <span className="name">{name}</span>
-        <span className="price">{price}</span>
+        <p className="name">{name.split("_").join(" ") + "  $" + price}</p>
       </div>
       <FancyButton inverted onClick={() => addItem(item)}>
         Add to Cart
@@ -36,4 +35,9 @@ const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(ShoppingItem));
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(ShoppingItem)
+);

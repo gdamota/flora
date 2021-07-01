@@ -26,7 +26,7 @@ export const selectCollection = collectionUrlParam =>
   );
 
 export const selectItem = (state, urlParams) => {
-  return state.directory.sections
-    .find(section => section.id === COLLECTION_ID_MAP[urlParams.categoryId])
-    .items.find(({id}) => id === urlParams.itemId);
+  return state.shop.item;
+  // .find(section => section.id === COLLECTION_ID_MAP[urlParams.categoryId])
+  // .items.find(({id}) => id === urlParams.itemId);
 };

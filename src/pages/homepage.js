@@ -6,9 +6,12 @@ import * as directoryActions from "../redux/directory/directory_actions";
 import "./styles/homepage.scss";
 
 const HomePage = ({directoryActions}) => {
-  useEffect(() => {
-    directoryActions.getCategorys();
-  });
+  useEffect(
+    () => {
+      directoryActions.getCategorys();
+    },
+    [directoryActions]
+  );
   return (
     <div className="homepage">
       <Directory />
