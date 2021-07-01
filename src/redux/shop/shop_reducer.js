@@ -6,7 +6,12 @@ const INITIAL_STATE = {
 
 const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ShopActionTypes.SET_PRODUCTS:
+    case ShopActionTypes.SET_CATEGORY:
+      return {
+        ...state,
+        collections: action.payload
+      };
+    case ShopActionTypes.SET_PRODUCT:
       return {
         ...state,
         collections: action.payload

@@ -1,3 +1,4 @@
 export const ShopActionTypes = {
-  SET_PRODUCTS: "SET_PRODUCTS"
+  SET_CATEGORY: "SET_CATEGORY",
+  SET_PRODUCT: "SET_PRODUCT"
 };

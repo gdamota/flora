@@ -1,19 +1,43 @@
 import {API, graphqlOperation} from "aws-amplify";
-import {listProducts} from "../../graphql/queries";
+import {getCategory, getProduct} from "../../graphql/queries";
 import {ShopActionTypes} from "./shop_types";
 
-export function getProducts() {
-  return async function(dispatch, getState) {
-    const response = await API.graphql(graphqlOperation(listProducts));
-    const products = response.data.listProducts.items.map(item => ({
-      ...item,
-      imageUrl: `/photos/bouquets/${item.name.toLowerCase()}.jpg`
-    }));
+const COLLECTION_ID_MAP = {
+  "fe1a274d-3460-4c3f-814c-6fd7a40c969d": "bouquets",
+  "88cb9fb7-285b-495b-b9d4-2027c01f3d97": "boutonnieres",
+  "d6f63ade-c560-477e-9989-85b1d204b50c": "bracelets",
+  "2a64e1db-3ea1-4438-9e6f-51017517442f": "earrings"
+};
 
-    const catalog = generateCatalog(getState().directory.sections, products);
+// export function getAProduct(productID) {
+//   return async function(dispatch, getState) {
+//     const response = await API.graphql(graphqlOperation(getProduct(productID)));
+//     const products = response.data.getProduct.items.map(item => ({
+//       ...item,
+//       imageUrl: `/photos/bouquets/${item.name.toLowerCase()}.jpg`
+//     }));
+//
+//     return dispatch({
+//       type: ShopActionTypes.SET_PRODUCTS,
+//       payload: catalog
+//     });
+//   };
+// }
+
+export function getCat(categoryID) {
+  return async function(dispatch, getState) {
+    const response = await API.graphql(
+      graphqlOperation(getCategory(COLLECTION_ID_MAP[categoryID]))
+    );
+    console.log(response);
+    // const products = response.data.getCategory.items.map(item => ({
+    //   ...item,
+    //   imageUrl: `/photos/bouquets/${item.name.toLowerCase()}.jpg`
+    // }));
+
     return dispatch({
-      type: ShopActionTypes.SET_PRODUCTS,
-      payload: catalog
+      type: "SET_CATEGORY",
+      payload: response.data.getCategory.items
     });
   };
 }

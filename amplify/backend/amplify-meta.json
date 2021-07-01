@@ -36,7 +36,7 @@
         "GraphQLAPIEndpointOutput": "https://st4vww6t4jfd7ovcdhagb2y25y.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-zu56mpwlsneqlpc65g2rzfqzwm"
       },
-      "lastPushTimeStamp": "2021-06-30T19:16:27.547Z",
+      "lastPushTimeStamp": "2021-06-30T21:33:18.019Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiflora"
@@ -55,7 +55,7 @@
         "Name": "productApi-staging",
         "LambdaExecutionRole": "floraLambdaRole82bdb032-staging"
       },
-      "lastPushTimeStamp": "2021-06-30T19:16:27.549Z",
+      "lastPushTimeStamp": "2021-06-30T21:33:18.020Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/function/productApi-cloudformation-template.json",
         "logicalId": "functionproductApi"
@@ -80,11 +80,25 @@
         "IdentityPoolName": "flora_identitypool_593ffb88__staging",
         "UserPoolName": "flora_userpool_593ffb88"
       },
-      "lastPushTimeStamp": "2021-06-30T19:16:27.550Z",
+      "lastPushTimeStamp": "2021-06-30T21:33:18.020Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/auth/cognito593ffb88-cloudformation-template.yml",
         "logicalId": "authcognito593ffb88"
       }
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "providerPlugin": "awscloudformation",
+      "type": "manual",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "logicalId": "hostingamplifyhosting"
+      },
+      "lastPushTimeStamp": "2021-06-30T21:33:18.021Z",
+      "output": {},
+      "lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
     }
   }
 }
