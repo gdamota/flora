@@ -27,7 +27,12 @@ const ItemPage = ({item, shopActions, addItem, match}) => {
     <div className="item-page">
       <div className="item-header">
         <h2 className="title">{name.split("_").join(" ")}</h2>
-        <ImageSlider images={[process.env.PUBLIC_URL + imageUrl]} />
+        <ImageSlider
+          images={[
+            process.env.PUBLIC_URL + imageUrl,
+            process.env.PUBLIC_URL + "/photos/bracelets.jpg"
+          ]}
+        />
         <div className="item-description">
           <p className="description">{description}</p>
           <p className="price">{"Price: $" + price}</p>

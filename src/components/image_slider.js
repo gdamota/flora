@@ -28,7 +28,7 @@ const ImageSlider = ({images}) => {
           className="image"
           src={images[index]}
           alt={index}
-          width="25%"
+          width="30%"
           height="auto"
         />
         <button className="button" onClick={slideRight}>
