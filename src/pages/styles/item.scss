@@ -1,14 +1,21 @@
 .item-page {
 
-  padding: 5px;
+  text-align: center;
 
-  .item-description{
+
+  .checkout-button{
+    position: relative;
+    left: 45%;
 
   }
 
   .title {
     font-size: 38px;
     margin: 0 auto 30px;
+  }
+
+  .description{
+    font-size: 20px;
   }
 
   .price{

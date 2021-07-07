@@ -5,11 +5,11 @@ import {selectItem} from "../redux/shop/shop_selector";
 import {addItem} from "../redux/cart/cart_actions";
 import {bindActionCreators} from "redux";
 import * as shopActions from "../redux/shop/shop_actions";
+import ImageSlider from "../components/image_slider";
 
 import "./styles/item.scss";
 
 const ItemPage = ({item, shopActions, addItem, match}) => {
-  console.log(match.params.itemId);
   const {name, imageUrl, price, description} = item;
   useEffect(
     () => {
@@ -17,16 +17,17 @@ const ItemPage = ({item, shopActions, addItem, match}) => {
     },
     [shopActions, match.params.itemId]
   );
+
+  const images = [
+    {url: process.env.PUBLIC_URL + imageUrl},
+    {url: process.env.PUBLIC_URL + imageUrl},
+    {url: process.env.PUBLIC_URL + imageUrl}
+  ];
   return (
     <div className="item-page">
       <div className="item-header">
         <h2 className="title">{name.split("_").join(" ")}</h2>
-        <img
-          src={process.env.PUBLIC_URL + imageUrl}
-          alt={name}
-          width="25%"
-          height="auto"
-        />
+        <ImageSlider images={[process.env.PUBLIC_URL + imageUrl]} />
         <div className="item-description">
           <p className="description">{description}</p>
           <p className="price">{"Price: $" + price}</p>
