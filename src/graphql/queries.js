@@ -154,7 +154,6 @@ export const getProduct = /* GraphQL */ `
       id
       name
       description
-      cost
       price
       quantity
       categoryID
@@ -186,7 +185,6 @@ export const listProducts = /* GraphQL */ `
         id
         name
         description
-        cost
         price
         quantity
         categoryID
