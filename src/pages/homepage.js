@@ -4,6 +4,13 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as directoryActions from "../redux/directory/directory_actions";
 import "./styles/homepage.scss";
+import styled from "styled-components";
+
+export const HomePageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const HomePage = ({directoryActions}) => {
   useEffect(

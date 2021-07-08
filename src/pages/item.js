@@ -18,11 +18,18 @@ const ItemPage = ({item, shopActions, addItem, match}) => {
     [shopActions, match.params.itemId]
   );
 
-  const images = [
-    {url: process.env.PUBLIC_URL + imageUrl},
-    {url: process.env.PUBLIC_URL + imageUrl},
-    {url: process.env.PUBLIC_URL + imageUrl}
-  ];
+  // const images = [
+  //   {url: process.env.PUBLIC_URL + imageUrl},
+  //   {url: process.env.PUBLIC_URL + imageUrl},
+  //   {url: process.env.PUBLIC_URL + imageUrl}
+  // ];
+  //
+  // const style = {
+  //   "background-image": `url(${process.env.PUBLIC_URL + imageUrl})`,
+  //   "backdrop-filter": "blur(5px)",
+  //   height: "100%"
+  // };
+
   return (
     <div className="item-page">
       <div className="item-header">

@@ -1,14 +1,17 @@
 .image-slider {
   display: flex;
   align-items: center;
-  justify-content: center;
 
   .image{
-    padding:2%
+    height: auto;
+    width: 420px;
+    @media screen and (max-width: 500px){
+      height: auto;
+      width: 260px;
+    }
   }
 
   .button {
-    top:25;
     position: relative;
     background-color: black;
     color: white;
@@ -18,8 +21,7 @@
     border: none;
     font-size: 18px;
     color: #FFFFFF;
-    padding: 6px;
-    width: 75px;
+    margin: 1%;
     text-align: center;
     transition-duration: 0.4s;
     text-decoration: none;

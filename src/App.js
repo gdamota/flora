@@ -1,4 +1,4 @@
-import "./App.css";
+import GlobalStyle from "./styles";
 import React from "react";
 import HomePage from "./pages/homepage";
 import Shop from "./pages/shop";
@@ -31,6 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <GlobalStyle />
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
