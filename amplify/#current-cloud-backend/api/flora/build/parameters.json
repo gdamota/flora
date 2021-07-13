@@ -7,5 +7,5 @@
         ]
     },
     "S3DeploymentBucket": "amplify-flora-staging-193730-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/914209d48ecc0e4dd853155c242d175b6b67a4d5"
+    "S3DeploymentRootKey": "amplify-appsync-files/d5c191093222c2b9460199acfe30aa4679974a23"
 }

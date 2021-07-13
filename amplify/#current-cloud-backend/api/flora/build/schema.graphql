@@ -11,7 +11,7 @@ type Category @aws_iam @aws_api_key {
 
 type Order @aws_iam @aws_api_key {
   id: ID!
-  products: [String!]!
+  products: [AWSJSON!]
   price: Float!
   datetime: AWSDateTime!
   status: String!
@@ -19,6 +19,7 @@ type Order @aws_iam @aws_api_key {
   zip_code: String!
   city: String!
   name: String!
+  email: String!
   _version: Int!
   _deleted: Boolean
   _lastChangedAt: AWSTimestamp!
@@ -224,6 +225,7 @@ input ModelOrderFilterInput {
   zip_code: ModelStringInput
   city: ModelStringInput
   name: ModelStringInput
+  email: ModelStringInput
   and: [ModelOrderFilterInput]
   or: [ModelOrderFilterInput]
   not: ModelOrderFilterInput
@@ -231,7 +233,7 @@ input ModelOrderFilterInput {
 
 input CreateOrderInput {
   id: ID
-  products: [String!]!
+  products: [AWSJSON!]
   price: Float!
   datetime: AWSDateTime!
   status: String!
@@ -239,12 +241,13 @@ input CreateOrderInput {
   zip_code: String!
   city: String!
   name: String!
+  email: String!
   _version: Int
 }
 
 input UpdateOrderInput {
   id: ID!
-  products: [String!]
+  products: [AWSJSON!]
   price: Float
   datetime: AWSDateTime
   status: String
@@ -252,6 +255,7 @@ input UpdateOrderInput {
   zip_code: String
   city: String
   name: String
+  email: String
   _version: Int
 }
 
@@ -269,6 +273,7 @@ input ModelOrderConditionInput {
   zip_code: ModelStringInput
   city: ModelStringInput
   name: ModelStringInput
+  email: ModelStringInput
   and: [ModelOrderConditionInput]
   or: [ModelOrderConditionInput]
   not: ModelOrderConditionInput

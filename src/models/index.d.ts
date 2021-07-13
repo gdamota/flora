@@ -32,7 +32,7 @@ export declare class Product {
 
 export declare class Order {
   readonly id: string;
-  readonly products: string[];
+  readonly products?: string[];
   readonly price: number;
   readonly datetime: string;
   readonly status: string;
@@ -40,6 +40,7 @@ export declare class Order {
   readonly zip_code: string;
   readonly city: string;
   readonly name: string;
+  readonly email: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Order>);

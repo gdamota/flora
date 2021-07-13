@@ -41,11 +41,5 @@
       "providerPlugin": "awscloudformation",
       "type": "manual"
     }
-  },
-  "storage": {
-    "order": {
-      "service": "DynamoDB",
-      "providerPlugin": "awscloudformation"
-    }
   }
 }

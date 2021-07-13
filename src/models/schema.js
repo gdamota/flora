@@ -210,10 +210,10 @@ export const schema = {
                 "products": {
                     "name": "products",
                     "isArray": true,
-                    "type": "String",
+                    "type": "AWSJSON",
                     "isRequired": true,
                     "attributes": [],
-                    "isArrayNullable": false
+                    "isArrayNullable": true
                 },
                 "price": {
                     "name": "price",
@@ -264,6 +264,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "email": {
+                    "name": "email",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -309,5 +316,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "953c72f07ac77c37da9c45026b5321cd"
+    "version": "8a4ca73aa21b9a8855d698c450608189"
 };

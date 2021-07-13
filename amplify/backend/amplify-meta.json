@@ -41,12 +41,12 @@
         "GraphQLAPIEndpointOutput": "https://st4vww6t4jfd7ovcdhagb2y25y.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-zu56mpwlsneqlpc65g2rzfqzwm"
       },
-      "lastPushTimeStamp": "2021-07-13T00:55:29.884Z",
+      "lastPushTimeStamp": "2021-07-13T23:32:29.980Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiflora"
       },
-      "lastPushDirHash": "eYDg325NMhR39S8qJclOwOOVenM="
+      "lastPushDirHash": "7MlrqbzaRg8y5zNX/13BGIyWjog="
     }
   },
   "function": {},
@@ -64,7 +64,7 @@
         "IdentityPoolName": "flora_identitypool_593ffb88__staging",
         "UserPoolName": "flora_userpool_593ffb88"
       },
-      "lastPushTimeStamp": "2021-07-13T00:55:29.887Z",
+      "lastPushTimeStamp": "2021-07-13T23:32:29.983Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/auth/cognito593ffb88-cloudformation-template.yml",
         "logicalId": "authcognito593ffb88"
@@ -77,17 +77,11 @@
       "providerPlugin": "awscloudformation",
       "type": "manual",
       "output": {},
-      "lastPushTimeStamp": "2021-07-13T00:55:29.887Z",
+      "lastPushTimeStamp": "2021-07-13T23:32:29.984Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
         "logicalId": "hostingamplifyhosting"
       }
-    }
-  },
-  "storage": {
-    "order": {
-      "service": "DynamoDB",
-      "providerPlugin": "awscloudformation"
     }
   }
 }
