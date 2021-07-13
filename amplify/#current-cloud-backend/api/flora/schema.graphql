@@ -25,5 +25,6 @@ type Product @model @auth(rules: [{allow: public}]) @key(name: "byCategory", fie
   quantity: Int
   Category: Category @connection
   categoryID: ID
+  photos: [String!]
 }
-  
+ 

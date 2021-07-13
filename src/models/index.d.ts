@@ -23,6 +23,7 @@ export declare class Product {
   readonly quantity?: number;
   readonly Category?: Category;
   readonly categoryID?: string;
+  readonly photos?: string[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Product>);

@@ -1,5 +1,11 @@
 {
     "CreateAPIKey": 1,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognito593ffb88",
+            "Outputs.UserPoolId"
+        ]
+    },
     "S3DeploymentBucket": "amplify-flora-staging-193730-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/180768da827baa89e6cfa8eab1bae54728817a47"
+    "S3DeploymentRootKey": "amplify-appsync-files/914209d48ecc0e4dd853155c242d175b6b67a4d5"
 }

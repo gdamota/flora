@@ -34,6 +34,7 @@ type Product @aws_iam @aws_api_key {
   price: Float!
   quantity: Int
   categoryID: ID
+  photos: [String!]
   _version: Int!
   _deleted: Boolean
   _lastChangedAt: AWSTimestamp!
@@ -287,6 +288,7 @@ input ModelProductFilterInput {
   price: ModelFloatInput
   quantity: ModelIntInput
   categoryID: ModelIDInput
+  photos: ModelStringInput
   and: [ModelProductFilterInput]
   or: [ModelProductFilterInput]
   not: ModelProductFilterInput
@@ -300,6 +302,7 @@ input CreateProductInput {
   price: Float!
   quantity: Int
   categoryID: ID
+  photos: [String!]
   _version: Int
   productCategoryId: ID
 }
@@ -312,6 +315,7 @@ input UpdateProductInput {
   price: Float
   quantity: Int
   categoryID: ID
+  photos: [String!]
   _version: Int
   productCategoryId: ID
 }
@@ -328,6 +332,7 @@ input ModelProductConditionInput {
   price: ModelFloatInput
   quantity: ModelIntInput
   categoryID: ModelIDInput
+  photos: ModelStringInput
   and: [ModelProductConditionInput]
   or: [ModelProductConditionInput]
   not: ModelProductConditionInput
