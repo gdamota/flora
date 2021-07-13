@@ -49,28 +49,7 @@
       "lastPushDirHash": "eYDg325NMhR39S8qJclOwOOVenM="
     }
   },
-  "function": {
-    "productApi": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "output": {
-        "Region": "us-east-1",
-        "Arn": "arn:aws:lambda:us-east-1:127329511965:function:productApi-staging",
-        "Name": "productApi-staging",
-        "LambdaExecutionRole": "floraLambdaRole82bdb032-staging"
-      },
-      "lastPushTimeStamp": "2021-07-13T00:55:29.886Z",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/function/productApi-cloudformation-template.json",
-        "logicalId": "functionproductApi"
-      },
-      "s3Bucket": {
-        "deploymentBucketName": "amplify-flora-staging-193730-deployment",
-        "s3Key": "amplify-builds/productApi-744b76444a783735426f-build.zip"
-      }
-    }
-  },
+  "function": {},
   "auth": {
     "cognito593ffb88": {
       "service": "Cognito",
@@ -103,6 +82,12 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
         "logicalId": "hostingamplifyhosting"
       }
+    }
+  },
+  "storage": {
+    "order": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
     }
   }
 }

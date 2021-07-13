@@ -27,13 +27,7 @@
       }
     }
   },
-  "function": {
-    "productApi": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
+  "function": {},
   "auth": {
     "cognito593ffb88": {
       "service": "Cognito",
@@ -46,6 +40,12 @@
       "service": "amplifyhosting",
       "providerPlugin": "awscloudformation",
       "type": "manual"
+    }
+  },
+  "storage": {
+    "order": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
     }
   }
 }
