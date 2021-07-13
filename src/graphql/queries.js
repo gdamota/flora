@@ -156,6 +156,7 @@ export const getProduct = /* GraphQL */ `
       description
       price
       quantity
+      photos
       categoryID
       _version
       _deleted
@@ -187,6 +188,7 @@ export const listProducts = /* GraphQL */ `
         description
         price
         quantity
+        photos
         categoryID
         _version
         _deleted

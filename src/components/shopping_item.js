@@ -6,7 +6,8 @@ import {withRouter} from "react-router-dom";
 import "./styles/shopping_item.scss";
 
 const ShoppingItem = ({item, addItem, history, routeName, match}) => {
-  const {name, price, imageUrl, id} = item;
+  const {name, price, photos, id} = item;
+
   const onClickFunc = match => {
     if (match.path === "/shop/:categoryId") {
       return history.push(`/shop/${id}`);
@@ -18,7 +19,7 @@ const ShoppingItem = ({item, addItem, history, routeName, match}) => {
     <div className="collection-item">
       <div
         className="image"
-        style={{backgroundImage: `url(${process.env.PUBLIC_URL + imageUrl})`}}
+        style={{backgroundImage: `url(${process.env.PUBLIC_URL + photos[0]})`}}
         onClick={onClickFunc}
       />
       <div className="collection=footer">

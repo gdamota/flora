@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     imageUrl: "",
     name: "",
     price: "",
-    description: ""
+    description: "",
+    photos: []
   }
 };
 

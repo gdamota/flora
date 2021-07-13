@@ -10,36 +10,33 @@ import ImageSlider from "../components/image_slider";
 import "./styles/item.scss";
 
 const ItemPage = ({item, shopActions, addItem, match}) => {
-  const {name, imageUrl, price, description} = item;
+  const {name, photos, price, description} = item;
   useEffect(
     () => {
       shopActions.getItem(match.params.itemId);
     },
     [shopActions, match.params.itemId]
   );
-
-  // const images = [
-  //   {url: process.env.PUBLIC_URL + imageUrl},
-  //   {url: process.env.PUBLIC_URL + imageUrl},
-  //   {url: process.env.PUBLIC_URL + imageUrl}
-  // ];
-  //
-  // const style = {
-  //   "background-image": `url(${process.env.PUBLIC_URL + imageUrl})`,
-  //   "backdrop-filter": "blur(5px)",
-  //   height: "100%"
-  // };
+  console.log(photos);
 
   return (
     <div className="item-page">
       <div className="item-header">
         <h2 className="title">{name.split("_").join(" ")}</h2>
-        <ImageSlider
-          images={[
-            process.env.PUBLIC_URL + imageUrl,
-            process.env.PUBLIC_URL + "/photos/bracelets.jpg"
-          ]}
-        />
+        {photos.length < 2 ? (
+          <img
+            className="image"
+            src={process.env.PUBLIC_URL + photos[0]}
+            alt={0}
+            width="30%"
+            height="auto"
+          />
+        ) : (
+          <ImageSlider
+            images={photos.map(photo => process.env.PUBLIC_URL + photo)}
+          />
+        )}
+
         <div className="item-description">
           <p className="description">{description}</p>
           <p className="price">{"Price: $" + price}</p>

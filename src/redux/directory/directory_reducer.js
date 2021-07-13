@@ -10,7 +10,7 @@ const INITIAL_STATE = {
         {
           id: "",
           name: "",
-          imageUrl: "",
+          photos: [],
           price: "",
           description: ""
         }
@@ -24,7 +24,7 @@ const INITIAL_STATE = {
         {
           id: "",
           name: "",
-          imageUrl: "",
+          photos: [],
           price: "",
           description: ""
         }
@@ -38,7 +38,7 @@ const INITIAL_STATE = {
         {
           id: "",
           name: "",
-          imageUrl: "",
+          photos: [],
           price: "",
           description: ""
         }
@@ -52,7 +52,7 @@ const INITIAL_STATE = {
         {
           id: "",
           name: "",
-          imageUrl: "",
+          photos: [],
           price: "",
           description: ""
         }
@@ -66,7 +66,7 @@ const INITIAL_STATE = {
         {
           id: "",
           name: "",
-          imageUrl: "",
+          photos: [],
           price: "",
           description: ""
         }
@@ -80,7 +80,7 @@ const INITIAL_STATE = {
         {
           id: "",
           name: "",
-          imageUrl: "",
+          photos: [],
           price: "",
           description: ""
         }
