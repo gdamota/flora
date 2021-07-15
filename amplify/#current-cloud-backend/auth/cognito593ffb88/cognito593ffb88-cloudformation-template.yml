@@ -109,6 +109,27 @@ Parameters:
             
             
             
+  useDefault:
+    Type: String
+  
+            
+        
+  userPoolGroupList:
+    Type: CommaDelimitedList
+      
+            
+  serviceName:
+    Type: String
+  
+            
+        
+  dependsOn:
+    Type: CommaDelimitedList
+      
+        
+  authProviders:
+    Type: CommaDelimitedList
+      
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
   

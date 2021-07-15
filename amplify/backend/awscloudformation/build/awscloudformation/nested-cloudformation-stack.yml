@@ -136,6 +136,11 @@
               "Arn"
             ]
           },
+          "useDefault": "default",
+          "userPoolGroupList": "",
+          "serviceName": "Cognito",
+          "dependsOn": "",
+          "authProviders": "",
           "env": "staging"
         }
       }
