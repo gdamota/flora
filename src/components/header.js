@@ -1,13 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {auth} from "../firebase/firebase.utils";
+import * as userActions from "../redux/user/user_actions";
+import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {ReactComponent as Logo} from "../assets/logo.svg";
 import CartIcon from "./cart_icon";
 import Cart from "./cart_dropdown";
 import "./styles/header.scss";
 
-const Header = ({currentUser, hidden}) => {
+const Header = ({userActions, currentUser, hidden}) => {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -24,15 +25,13 @@ const Header = ({currentUser, hidden}) => {
         </Link>
       </div>
       <div className="options">
-        <Link className="option" to="/signin">
+        <Link className="option" to="/">
           {currentUser ? (
-            <div className="options" onClick={() => auth.signOut()}>
+            <div className="options" onClick={() => userActions.signOut()}>
               SIGN OUT
             </div>
           ) : (
-            <Link className="options" to="/signin">
-              SIGN IN
-            </Link>
+            <div />
           )}
         </Link>
         <CartIcon />
@@ -42,9 +41,16 @@ const Header = ({currentUser, hidden}) => {
   );
 };
 
+const mapDispatchToProps = dispatch => ({
+  userActions: bindActionCreators(userActions, dispatch)
+});
+
 const mapStateToProps = ({user: {currentUser}, cart: {hidden}}) => ({
   currentUser,
   hidden
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

@@ -4,6 +4,7 @@ import {createStructuredSelector} from "reselect";
 import {selectCartItems, selectCartTotal} from "../redux/cart/cart_selectors";
 import CheckoutItem from "../components/checkout_item";
 import StripeCheckoutButton from "../components/stripe_button";
+import {withAuthenticator} from "@aws-amplify/ui-react";
 import "./styles/checkout.scss";
 
 const CheckoutPage = ({cartItems, total}) => {
@@ -39,4 +40,4 @@ const mapStateToProps = createStructuredSelector({
   total: selectCartTotal
 });
 
-export default connect(mapStateToProps)(CheckoutPage);
+export default withAuthenticator(connect(mapStateToProps)(CheckoutPage));

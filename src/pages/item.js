@@ -17,8 +17,6 @@ const ItemPage = ({item, shopActions, addItem, match}) => {
     },
     [shopActions, match.params.itemId]
   );
-  console.log(photos);
-
   return (
     <div className="item-page">
       <div className="item-header">
@@ -27,7 +25,7 @@ const ItemPage = ({item, shopActions, addItem, match}) => {
           <img
             className="image"
             src={process.env.PUBLIC_URL + photos[0]}
-            alt={0}
+            alt={photos[0]}
             width="30%"
             height="auto"
           />
