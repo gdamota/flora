@@ -8,7 +8,7 @@ export const setCurrentUser = user => ({
 
 export function getCurrentUser() {
   return async function(dispatch) {
-    const user = await Auth.currentAuthenticatedUser();
+    const user = await Auth.currentUserInfo();
     console.log(user);
     return dispatch({
       type: UserActionTypes.SET_CURRENT_USER,
