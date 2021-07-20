@@ -1,8 +1,0 @@
-{
-  "AuthCognitoUserPoolId": {
-    "Fn::GetAtt": [
-      "authcognito593ffb88",
-      "Outputs.UserPoolId"
-    ]
-  }
-}
