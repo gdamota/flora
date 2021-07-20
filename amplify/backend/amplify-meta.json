@@ -26,7 +26,8 @@
               "description": "api key description"
             }
           },
-          "additionalAuthenticationProviders": [{
+          "additionalAuthenticationProviders": [
+            {
               "authenticationType": "AWS_IAM"
             },
             {
@@ -50,30 +51,7 @@
     }
   },
   "function": {},
-  "auth": {
-    "cognito593ffb88": {
-      "service": "Cognito",
-      "serviceType": "managed",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "UserPoolId": "us-east-1_vgsQ4pScx",
-        "AppClientIDWeb": "4e2sldc4cncm7j139h80l2j2jj",
-        "AppClientID": "2ol57s0g7p6j25hspvfcc2b64g",
-        "IdentityPoolId": "us-east-1:6c47db68-6d17-469b-8fb6-0ea7f8687460",
-        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:127329511965:userpool/us-east-1_vgsQ4pScx",
-        "IdentityPoolName": "flora_identitypool_593ffb88__staging",
-        "UserPoolName": "flora_userpool_593ffb88"
-      },
-      "lastPushTimeStamp": "2021-07-15T21:44:35.337Z",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/auth/cognito593ffb88-cloudformation-template.yml",
-        "logicalId": "authcognito593ffb88"
-      },
-      "lastPushDirHash": "M3wM+tst08zImL/1BwQ4a7Zr1kE=",
-      "dependsOn": [],
-      "customAuth": false
-    }
-  },
+  "auth": {},
   "hosting": {
     "amplifyhosting": {
       "service": "amplifyhosting",

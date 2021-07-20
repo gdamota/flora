@@ -28,14 +28,7 @@
     }
   },
   "function": {},
-  "auth": {
-    "cognito593ffb88": {
-      "service": "Cognito",
-      "serviceType": "managed",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": []
-    }
-  },
+  "auth": {},
   "hosting": {
     "amplifyhosting": {
       "service": "amplifyhosting",
