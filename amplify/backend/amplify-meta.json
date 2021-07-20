@@ -9,8 +9,7 @@
       "UnauthRoleName": "amplify-flora-staging-193730-unauthRole",
       "StackName": "amplify-flora-staging-193730",
       "StackId": "arn:aws:cloudformation:us-east-1:127329511965:stack/amplify-flora-staging-193730/72f16560-d45a-11eb-bc17-0eb337012115",
-      "AmplifyAppId": "d36on50haw6tc8",
-      "AuthTriggerTemplateURL": ""
+      "AmplifyAppId": "d36on50haw6tc8"
     }
   },
   "api": {
@@ -42,7 +41,7 @@
         "GraphQLAPIEndpointOutput": "https://st4vww6t4jfd7ovcdhagb2y25y.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-zu56mpwlsneqlpc65g2rzfqzwm"
       },
-      "lastPushTimeStamp": "2021-07-15T21:44:35.314Z",
+      "lastPushTimeStamp": "2021-07-20T17:58:52.988Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiflora"
@@ -51,14 +50,36 @@
     }
   },
   "function": {},
-  "auth": {},
+  "auth": {
+    "cognito593ffb88": {
+      "service": "Cognito",
+      "serviceType": "managed",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "UserPoolId": "us-east-1_d7cTLf68V",
+        "AppClientIDWeb": "4e2sldc4cncm7j139h80l2j2jj",
+        "AppClientID": "2ol57s0g7p6j25hspvfcc2b64g",
+        "IdentityPoolId": "us-east-1:6c47db68-6d17-469b-8fb6-0ea7f8687460",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:127329511965:userpool/us-east-1_d7cTLf68V",
+        "IdentityPoolName": "flora_identitypool_593ffb88__staging",
+        "UserPoolName": "flora_userpool_593ffb88"
+      },
+      "lastPushTimeStamp": "2021-07-20T17:58:52.991Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/auth/cognito593ffb88-cloudformation-template.yml",
+        "logicalId": "authcognito593ffb88"
+      },
+      "lastPushDirHash": "M3wM+tst08zImL/1BwQ4a7Zr1kE="
+    }
+  },
   "hosting": {
     "amplifyhosting": {
       "service": "amplifyhosting",
       "providerPlugin": "awscloudformation",
       "type": "manual",
       "output": {},
-      "lastPushTimeStamp": "2021-07-15T21:44:35.326Z",
+      "lastPushTimeStamp": "2021-07-20T17:58:52.995Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-staging-193730-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
         "logicalId": "hostingamplifyhosting"
