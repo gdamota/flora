@@ -3,14 +3,21 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
-    "aws_appsync_graphqlEndpoint": "https://st4vww6t4jfd7ovcdhagb2y25y.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_appsync_graphqlEndpoint": "https://ro2ne5eti5cwzn5m5obxccfcei.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-1",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-zu56mpwlsneqlpc65g2rzfqzwm",
-    "aws_cognito_identity_pool_id": "us-east-1:6c47db68-6d17-469b-8fb6-0ea7f8687460",
+    "aws_appsync_apiKey": "da2-axol5rkco5g5rkpozbhbf6b4ky",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "floraPayment",
+            "endpoint": "https://vwdxk2oqi0.execute-api.us-east-1.amazonaws.com/dev",
+            "region": "us-east-1"
+        }
+    ],
+    "aws_cognito_identity_pool_id": "us-east-1:d093aebb-8daa-447a-a141-b7958c52f132",
     "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_d7cTLf68V",
-    "aws_user_pools_web_client_id": "4e2sldc4cncm7j139h80l2j2jj",
+    "aws_user_pools_id": "us-east-1_Tm4i9F7oE",
+    "aws_user_pools_web_client_id": "1i99baijsm3potneph4ilj8knd",
     "oauth": {}
 };
 

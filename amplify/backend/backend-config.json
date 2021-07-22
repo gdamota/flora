@@ -15,25 +15,40 @@
           "additionalAuthenticationProviders": [
             {
               "authenticationType": "AWS_IAM"
-            },
-            {
-              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-              "userPoolConfig": {
-                "userPoolId": "authcognito593ffb88"
-              }
             }
           ]
         }
       }
+    },
+    "floraPayment": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "paymentProcessor",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
     }
   },
-  "function": {},
-  "auth": {
-    "cognito593ffb88": {
-      "service": "Cognito",
-      "serviceType": "managed",
+  "function": {
+    "paymentProcessor": {
+      "build": true,
       "providerPlugin": "awscloudformation",
+      "service": "Lambda",
       "dependsOn": []
+    }
+  },
+  "auth": {
+    "flora": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
     }
   },
   "hosting": {

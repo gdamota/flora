@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "flora_identitypool_593ffb88",
+    "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "flora593ffb88",
-    "userPoolName": "flora_userpool_593ffb88",
+    "resourceNameTruncated": "florac7f3c384",
+    "userPoolName": "flora",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -22,17 +22,13 @@
     ],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [
-        "email"
-    ],
-    "userpoolClientReadAttributes": [
-        "email"
-    ],
-    "userpoolClientLambdaRole": "flora593ffb88_userpoolclient_lambda_role",
+    "userpoolClientWriteAttributes": [],
+    "userpoolClientReadAttributes": [],
+    "userpoolClientLambdaRole": "florac7f3c384_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
+    "sharedId": "c7f3c384",
+    "resourceName": "flora",
     "authSelections": "identityPoolAndUserPool",
-    "resourceName": "cognito593ffb88",
-    "sharedId": "593ffb88",
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -45,9 +41,16 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
-    "userPoolGroupList": [],
     "serviceName": "Cognito",
-    "dependsOn": [],
-    "authProviders": []
+    "usernameAttributes": [
+        "email"
+    ],
+    "useDefault": "manual",
+    "userPoolGroups": false,
+    "userPoolGroupList": [],
+    "adminQueries": false,
+    "thirdPartyAuth": false,
+    "authProviders": [],
+    "usernameCaseSensitive": false,
+    "dependsOn": []
 }

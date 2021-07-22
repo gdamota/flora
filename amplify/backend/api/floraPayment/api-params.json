@@ -1,0 +1,41 @@
+{
+  "paths": [
+    {
+      "name": "/pay",
+      "lambdaFunction": "paymentProcessor",
+      "privacy": {
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH"
+        ]
+      },
+      "policyResourceName": "/pay"
+    }
+  ],
+  "resourceName": "floraPayment",
+  "apiName": "floraPayment",
+  "functionArns": [
+    {
+      "lambdaFunction": "paymentProcessor"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 0,
+    "authRoleName": "amplify-flora-dev-145849-authRole",
+    "unAuthRoleName": "amplify-flora-dev-145849-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "paymentProcessor",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

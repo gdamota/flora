@@ -28,4 +28,4 @@ type Product @model @auth(rules: [{allow: public}]) @key(name: "byCategory", fie
   categoryID: ID
   photos: [String!]
 }
- 
+  

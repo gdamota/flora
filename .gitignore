@@ -1,8 +1,7 @@
 # config
 /ampliy/#current-cloud-backend/
 /amplify/team-provider-info.json
-/amplify/backend/function/productApi/src/node_modules
-
+/amplify/backend/function/paymentProcessor/src/node_modules
 
 # pyenv
 .python-version
