@@ -5,33 +5,40 @@ import {selectCartItems, selectCartTotal} from "../redux/cart/cart_selectors";
 import CheckoutItem from "../components/checkout_item";
 import StripeCheckoutButton from "../components/stripe_button";
 import {withAuthenticator} from "@aws-amplify/ui-react";
+import {Elements} from "@stripe/react-stripe-js";
+import {loadStripe} from "@stripe/stripe-js";
 import "./styles/checkout.scss";
 
 const CheckoutPage = ({cartItems, total}) => {
+  const key =
+    "pk_test_51J5CXxBtTeMvZ2U5KSo4RAv4h9sRtAx8dmq5wQx7ff1x0Sm7vsFCOq0vov1Oc2HHvn4wz1PSIdCiHt6qhDHroQhx00Bcg1mjmI";
+  const stripePromise = loadStripe(key);
   return (
-    <div className="checkout-page">
-      <div className="checkout-header">
-        <div className="header-block">
-          <span>Description</span>
+    <Elements stripe={stripePromise}>
+      <div className="checkout-page">
+        <div className="checkout-header">
+          <div className="header-block">
+            <span>Description</span>
+          </div>
+          <div className="header-block">
+            <span>Quantity</span>
+          </div>
+          <div className="header-block">
+            <span>Price</span>
+          </div>
+          <div className="header-block">
+            <span>Remove</span>
+          </div>
         </div>
-        <div className="header-block">
-          <span>Quantity</span>
+        {cartItems.map(cartItem => (
+          <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+        ))}
+        <div className="total">
+          <span> TOTAL: ${total}</span>
         </div>
-        <div className="header-block">
-          <span>Price</span>
-        </div>
-        <div className="header-block">
-          <span>Remove</span>
-        </div>
+        <StripeCheckoutButton price={total} items={cartItems} />
       </div>
-      {cartItems.map(cartItem => (
-        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-      ))}
-      <div className="total">
-        <span> TOTAL: ${total}</span>
-      </div>
-      <StripeCheckoutButton price={total} />
-    </div>
+    </Elements>
   );
 };
 

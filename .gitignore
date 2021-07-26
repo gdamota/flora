@@ -11,12 +11,8 @@
 /node_modules
 
 # dotenv
-.env
 
-# virtualenv
-.venv
-venv/
-ENV/
+
 
 # build dir
 /build

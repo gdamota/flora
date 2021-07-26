@@ -9,10 +9,12 @@ See the License for the specific language governing permissions and limitations 
 var express = require("express");
 var bodyParser = require("body-parser");
 var awsServerlessExpressMiddleware = require("aws-serverless-express/middleware");
+var cors = require("cors");
 
 // declare a new express app
 var app = express();
 app.use(bodyParser.json());
+app.use(cors());
 app.use(awsServerlessExpressMiddleware.eventContext());
 
 // Enable CORS for all methods
@@ -22,26 +24,43 @@ app.use(function(req, res, next) {
   next();
 });
 
+/**********************
+ * Example get method *
+ **********************/
+
+app.get("/pay", function(req, res) {
+  // Add your code here
+  res.json({success: "get call succeed!", url: req.url});
+});
+
+app.get("/pay/*", function(req, res) {
+  // Add your code here
+  res.json({success: "get call succeed!", url: req.url});
+});
+
 /****************************
- * post method *
+ * Example post method *
  ****************************/
-var axios = require("axios");
+var stripe = require("stripe")(process.env.SECRET_KEY);
 
-app.post("/pay", function(req, res) {
-  console.log(req.body);
-
-  // axios
-  //   .post("STRIPE API ENDPOINT", {
-  //     obj: paymentObj
-  //   })
-  //   .then(function(response) {
-  //     res.json({res: response});
-  //   })
-  //   .catch(function(err) {
-  //     res.json({error: err});
-  //   });
-
-  res.json({msg: "success", body: req});
+app.post("/pay", async function(req, res) {
+  let error;
+  let status;
+  let clientSceret;
+  try {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: req.body.total,
+      currency: "usd",
+      payment_method_types: ["card"]
+    });
+    console.log(paymentIntent);
+    status = "success";
+    clientSceret = paymentIntent.client_secret;
+  } catch (err) {
+    console.log("Error:", err);
+    status = "failure";
+  }
+  res.json({success: status, url: req.url, body: clientSceret});
 });
 
 app.listen(3000, function() {

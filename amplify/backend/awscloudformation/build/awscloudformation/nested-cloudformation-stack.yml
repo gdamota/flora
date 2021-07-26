@@ -137,7 +137,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-flora-dev-145849-deployment/amplify-cfn-templates/function/paymentProcessor-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-flora-dev-145849-deployment",
-          "s3Key": "amplify-builds/paymentProcessor-2f376868306e45787431-build.zip",
+          "s3Key": "amplify-builds/paymentProcessor-2f6864596e3062504871-build.zip",
           "env": "dev"
         }
       }
