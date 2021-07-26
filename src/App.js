@@ -8,6 +8,7 @@ import Header from "./components/header";
 import {Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
 import * as userActions from "./redux/user/user_actions";
+import * as directoryActions from "./redux/directory/directory_actions";
 import {bindActionCreators} from "redux";
 import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
@@ -17,7 +18,8 @@ Amplify.configure(awsconfig);
 class App extends React.Component {
   unSubFromAuth = null;
   componentDidMount() {
-    const {userActions} = this.props;
+    const {userActions, directoryActions} = this.props;
+    directoryActions.getCategorys();
     this.unSubFromAuth = userActions.getCurrentUser();
   }
 
@@ -46,7 +48,8 @@ const mapStateToProps = ({user}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  userActions: bindActionCreators(userActions, dispatch)
+  userActions: bindActionCreators(userActions, dispatch),
+  directoryActions: bindActionCreators(directoryActions, dispatch)
 });
 
 export default connect(
