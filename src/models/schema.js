@@ -211,7 +211,7 @@ export const schema = {
                     "name": "products",
                     "isArray": true,
                     "type": "AWSJSON",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
                 },
@@ -219,56 +219,63 @@ export const schema = {
                     "name": "price",
                     "isArray": false,
                     "type": "Float",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "datetime": {
                     "name": "datetime",
                     "isArray": false,
                     "type": "AWSDateTime",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "status": {
                     "name": "status",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "address": {
                     "name": "address",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "zip_code": {
                     "name": "zip_code",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
-                "city": {
-                    "name": "city",
+                "state": {
+                    "name": "state",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "name": {
                     "name": "name",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "email": {
                     "name": "email",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "stripe_id": {
+                    "name": "stripe_id",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {
@@ -316,5 +323,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "8a4ca73aa21b9a8855d698c450608189"
+    "version": "2939b4d97cf5ca961997c29937e38bb3"
 };

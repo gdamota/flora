@@ -73,8 +73,9 @@ export const createOrder = /* GraphQL */ `
       datetime
       status
       address
+      stripe_id
+      state
       zip_code
-      city
       name
       _version
       _deleted

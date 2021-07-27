@@ -32,15 +32,16 @@ export declare class Product {
 
 export declare class Order {
   readonly id: string;
-  readonly products?: string[];
-  readonly price: number;
-  readonly datetime: string;
-  readonly status: string;
-  readonly address: string;
-  readonly zip_code: string;
-  readonly city: string;
-  readonly name: string;
-  readonly email: string;
+  readonly products?: (string | null)[];
+  readonly price?: number;
+  readonly datetime?: string;
+  readonly status?: string;
+  readonly address?: string;
+  readonly zip_code?: string;
+  readonly state?: string;
+  readonly name?: string;
+  readonly email?: string;
+  readonly stripe_id?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Order>);

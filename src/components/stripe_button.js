@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Paper from "@material-ui/core/Paper";
 import {createOrder} from "..//graphql/mutations";
-import {API, graphqlOperation} from "aws-amplify";
+import {API, Auth} from "aws-amplify";
 import {CardElement, useStripe, useElements} from "@stripe/react-stripe-js";
 import "./styles/stripe.scss";
 
@@ -15,34 +15,46 @@ const StripeCheckoutForm = ({price, items}) => {
   let [state, setState] = useState();
 
   async function handleSubmit() {
-    const data = {
+    let stripe_id;
+    const paymentData = {
       body: {
-        name: name,
-        address: address,
-        zip_code: zip,
-        state: state,
-        products: items,
-        total: price * 100,
-        status: "unfiled"
+        price: price
       }
     };
-
-    await API.graphql(graphqlOperation(createOrder));
-
-    await API.post("floraPayment", "/pay", data).then(response => {
-      console.log(response);
-      stripe.confirmCardPayment(response.body, {
+    await API.post("floraPayment", "/pay", paymentData).then(response => {
+      stripe_id = response.body.id;
+      stripe.confirmCardPayment(response.body.client_secret, {
         payment_method: {
           type: "card",
           card: elements.getElement(CardElement)
         }
       });
     });
+
+    const order = {
+      name: name,
+      email: Auth.user.attributes.email,
+      address: address,
+      zip_code: zip,
+      state: state,
+      products: JSON.stringify(items.map(item => [item.name, item.quantity])),
+      price: price,
+      status: "unfiled",
+      stripe_id: stripe_id
+    };
+
+    await API.graphql({
+      query: createOrder,
+      variables: {input: order}
+    }).then(res => {
+      console.log(res);
+      alert("Thank you for your purchase!");
+    });
   }
 
   return (
     <Paper elevation={3}>
-      <form className="payment-form" onsubmit={handleSubmit}>
+      <div className="payment-form">
         <h3>Shipping Information</h3>
         <input
           className="input"
@@ -50,7 +62,7 @@ const StripeCheckoutForm = ({price, items}) => {
           name="name"
           placeholder="name"
           value={name}
-          onchange={e => setName(e.target.value)}
+          onChange={e => setName(e.target.value)}
         />
         <input
           className="input"
@@ -58,7 +70,7 @@ const StripeCheckoutForm = ({price, items}) => {
           name="address"
           placeholder="address"
           value={address}
-          onchange={e => setAddress(e.target.value)}
+          onChange={e => setAddress(e.target.value)}
         />
         <input
           className="input"
@@ -66,7 +78,7 @@ const StripeCheckoutForm = ({price, items}) => {
           name="zip"
           placeholder="zip"
           value={zip}
-          onchange={e => setZip(e.target.value)}
+          onChange={e => setZip(e.target.value)}
         />
         <input
           className="input"
@@ -74,7 +86,7 @@ const StripeCheckoutForm = ({price, items}) => {
           name="state"
           placeholder="state"
           value={state}
-          onchange={e => setState(e.target.value)}
+          onChange={e => setState(e.target.value)}
         />
         <h3>Card Information</h3>
         <CardElement
@@ -93,10 +105,14 @@ const StripeCheckoutForm = ({price, items}) => {
             }
           }}
         />
-        <button className="payment-button" type="submit" value="Submit">
+        <button
+          className="payment-button"
+          onClick={handleSubmit}
+          disabled={!address || !name || !zip || !state}
+        >
           Pay
         </button>
-      </form>
+      </div>
     </Paper>
   );
 };

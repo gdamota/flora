@@ -6,15 +6,16 @@ type Category @model @auth(rules: [{allow: public}]) {
 
 type Order @model @auth(rules: [{allow: public}]) {
   id: ID!
-  products: [AWSJSON!]
-  price: Float!
-  datetime: AWSDateTime!
-  status: String!
-  address: String!
-  zip_code: String!
-  city: String!
-  name: String!
-  email: String!
+  products: [AWSJSON]
+  price: Float
+  datetime: AWSDateTime
+  status: String
+  address: String
+  zip_code: String
+  state: String
+  name: String
+  email: String
+  stripe_id: String
 }
 
 type Product @model @auth(rules: [{allow: public}]) @key(name: "byCategory", fields: ["categoryID"]) {
@@ -28,4 +29,4 @@ type Product @model @auth(rules: [{allow: public}]) @key(name: "byCategory", fie
   categoryID: ID
   photos: [String!]
 }
-   
+ 

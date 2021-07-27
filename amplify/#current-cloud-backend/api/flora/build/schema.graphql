@@ -11,15 +11,16 @@ type Category @aws_iam @aws_api_key {
 
 type Order @aws_iam @aws_api_key {
   id: ID!
-  products: [AWSJSON!]
-  price: Float!
-  datetime: AWSDateTime!
-  status: String!
-  address: String!
-  zip_code: String!
-  city: String!
-  name: String!
-  email: String!
+  products: [AWSJSON]
+  price: Float
+  datetime: AWSDateTime
+  status: String
+  address: String
+  zip_code: String
+  state: String
+  name: String
+  email: String
+  stripe_id: String
   _version: Int!
   _deleted: Boolean
   _lastChangedAt: AWSTimestamp!
@@ -223,9 +224,10 @@ input ModelOrderFilterInput {
   status: ModelStringInput
   address: ModelStringInput
   zip_code: ModelStringInput
-  city: ModelStringInput
+  state: ModelStringInput
   name: ModelStringInput
   email: ModelStringInput
+  stripe_id: ModelStringInput
   and: [ModelOrderFilterInput]
   or: [ModelOrderFilterInput]
   not: ModelOrderFilterInput
@@ -233,29 +235,31 @@ input ModelOrderFilterInput {
 
 input CreateOrderInput {
   id: ID
-  products: [AWSJSON!]
-  price: Float!
-  datetime: AWSDateTime!
-  status: String!
-  address: String!
-  zip_code: String!
-  city: String!
-  name: String!
-  email: String!
-  _version: Int
-}
-
-input UpdateOrderInput {
-  id: ID!
-  products: [AWSJSON!]
+  products: [AWSJSON]
   price: Float
   datetime: AWSDateTime
   status: String
   address: String
   zip_code: String
-  city: String
+  state: String
   name: String
   email: String
+  stripe_id: String
+  _version: Int
+}
+
+input UpdateOrderInput {
+  id: ID!
+  products: [AWSJSON]
+  price: Float
+  datetime: AWSDateTime
+  status: String
+  address: String
+  zip_code: String
+  state: String
+  name: String
+  email: String
+  stripe_id: String
   _version: Int
 }
 
@@ -271,9 +275,10 @@ input ModelOrderConditionInput {
   status: ModelStringInput
   address: ModelStringInput
   zip_code: ModelStringInput
-  city: ModelStringInput
+  state: ModelStringInput
   name: ModelStringInput
   email: ModelStringInput
+  stripe_id: ModelStringInput
   and: [ModelOrderConditionInput]
   or: [ModelOrderConditionInput]
   not: ModelOrderConditionInput
