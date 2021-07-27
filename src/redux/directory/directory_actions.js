@@ -26,6 +26,8 @@ export function getCategorys() {
 const generateCatalog = (sections, products) => {
   return sections.map(section => ({
     ...section,
-    items: products.filter(product => product.categoryID === section.id)
+    items: products.filter(
+      product => (product.categoryID === section.id) & (product.quantity > 0)
+    )
   }));
 };

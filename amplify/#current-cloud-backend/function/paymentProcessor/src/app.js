@@ -46,6 +46,7 @@ var stripe = require("stripe")(process.env.SECRET_KEY);
 app.post("/pay", async function(req, res) {
   let error;
   let status;
+  let clientSceret;
   try {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: req.body.total,
@@ -54,11 +55,12 @@ app.post("/pay", async function(req, res) {
     });
     console.log(paymentIntent);
     status = "success";
+    clientSceret = paymentIntent.client_secret;
   } catch (err) {
     console.log("Error:", err);
     status = "failure";
   }
-  res.json({success: status, url: req.url, body: paymentIntent});
+  res.json({success: status, url: req.url, body: clientSceret});
 });
 
 app.listen(3000, function() {
