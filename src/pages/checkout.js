@@ -17,7 +17,7 @@ const CheckoutPage = ({cartItems, total}) => {
     <Elements stripe={stripePromise}>
       <div className="checkout-page">
         <div className="total">
-          <span> TOTAL: ${total}</span>
+          <span> TOTAL: ${total.toFixed(2)}</span>
         </div>
         <div className="checkout-header">
           <div className="header-block">
