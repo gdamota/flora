@@ -6,8 +6,9 @@
   align-items: center;
   margin: 50px auto 0;
   @media screen and (max-width: 650px){
-    font-size: 10px;
-    padding: 5px
+    font-size: 14px;
+    padding: 5px;
+    width: 100%
   }
 
 
@@ -32,6 +33,10 @@
     margin-top: 30px;
     font-size: 32px;
     align-items: center;
+    @media screen and (max-width: 650px){
+      font-size: 20px;
+      padding: 5px
+    }
   }
 
   .checkout {
@@ -39,9 +44,6 @@
     padding: 5%;
     display: block;
     text-align: center;
-    @media screen and (max-width: 650px){
-        width: 90%
-    }
   }
 
   .button{

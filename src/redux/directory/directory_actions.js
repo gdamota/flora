@@ -11,6 +11,10 @@ export function getCategorys() {
       routeName: category.title.toLowerCase(),
       imageUrl: `/photos/${category.title.toLowerCase()}.jpg`
     }));
+    categorys.sort(function(a, b) {
+      return b.title.localeCompare(a.title);
+    });
+    console.log(categorys);
     const response = await API.graphql(graphqlOperation(listProducts));
     const catalog = generateCatalog(
       categorys,

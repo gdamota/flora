@@ -93,7 +93,7 @@ const StripeCheckoutForm = ({price, items}) => {
           options={{
             style: {
               base: {
-                fontSize: "18px",
+                fontSize: "14px",
                 color: "#424770",
                 "::placeholder": {
                   color: "#aab7c4"
