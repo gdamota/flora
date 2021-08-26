@@ -9,7 +9,7 @@ export function getCategorys() {
       ...category,
       linkUrl: `shop/${category.title.toLowerCase()}`,
       routeName: category.title.toLowerCase(),
-      imageUrl: `/photos/${category.title.toLowerCase()}.jpg`
+      imageUrl: `https://floraphotos145849-dev.s3.amazonaws.com/public/photos/${category.title.toLowerCase()}.jpg`
     }));
     categorys.sort(function(a, b) {
       return b.title.localeCompare(a.title);
@@ -20,6 +20,7 @@ export function getCategorys() {
       categorys,
       response.data.listProducts.items
     );
+    console.log(catalog);
     return dispatch({
       type: DirectoryActionTypes.SET_CATEGORYS,
       payload: catalog
@@ -30,8 +31,19 @@ export function getCategorys() {
 const generateCatalog = (sections, products) => {
   return sections.map(section => ({
     ...section,
-    items: products.filter(
-      product => (product.categoryID === section.id) & (product.quantity > 0)
-    )
+    items: products
+      .filter(
+        product => (product.categoryID === section.id) & (product.quantity > 0)
+      )
+      .map(item => {
+        return {
+          ...item,
+          photos: item.photos.map(url => {
+            return (
+              "https://floraphotos145849-dev.s3.amazonaws.com/public" + url
+            );
+          })
+        };
+      })
   }));
 };

@@ -4,6 +4,7 @@ import HomePage from "./pages/homepage";
 import Shop from "./pages/shop";
 import CheckoutPage from "./pages/checkout";
 import Contact from "./pages/contact";
+import ManagementPage from "./pages/management";
 import Header from "./components/header";
 import {Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
@@ -37,6 +38,7 @@ class App extends React.Component {
           <Route path="/shop" component={Shop} />
           <Route path="/checkout" component={CheckoutPage} />
           <Route path="/contact" component={Contact} />
+          <Route path="/manage" component={ManagementPage} />
         </Switch>
       </div>
     );

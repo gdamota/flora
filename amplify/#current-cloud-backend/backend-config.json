@@ -63,5 +63,11 @@
       "providerPlugin": "awscloudformation",
       "type": "manual"
     }
+  },
+  "storage": {
+    "floraPhotos": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

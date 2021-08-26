@@ -24,14 +24,20 @@ const ItemPage = ({item, shopActions, addItem, match}) => {
         {photos.length < 2 ? (
           <img
             className="image"
-            src={process.env.PUBLIC_URL + photos[0]}
+            src={
+              "https://floraphotos145849-dev.s3.amazonaws.com/public" +
+              photos[0]
+            }
             alt={photos[0]}
             width="30%"
             height="auto"
           />
         ) : (
           <ImageSlider
-            images={photos.map(photo => process.env.PUBLIC_URL + photo)}
+            images={photos.map(
+              photo =>
+                "https://floraphotos145849-dev.s3.amazonaws.com/public" + photo
+            )}
           />
         )}
 

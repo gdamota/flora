@@ -19,7 +19,7 @@ export function getItem(productID) {
     });
     const product = {
       ...response.data.getProduct,
-      imageUrl: `/photos/${
+      imageUrl: `https://floraphotos145849-dev.s3.amazonaws.com/public/photos/${
         COLLECTION_ID_MAP[response.data.getProduct.categoryID]
       }/${response.data.getProduct.name.toLowerCase()}.jpg`
     };
