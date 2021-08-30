@@ -39,7 +39,7 @@ const Header = ({userActions, currentUser, hidden}) => {
       </div>
       <div className="options">
         <Link className="option" to="/">
-          {currentUser ? (
+          {currentUser.attributes.email ? (
             <div className="options" onClick={() => userActions.signOut()}>
               SIGN OUT
             </div>
