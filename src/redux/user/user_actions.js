@@ -8,8 +8,11 @@ export const setCurrentUser = user => ({
 
 export function getCurrentUser() {
   return async function(dispatch) {
-    const user = await Auth.currentUserInfo();
+    let user = await Auth.currentUserInfo();
     console.log(user);
+    if (user === null) {
+      user = {attributes: {email: null}};
+    }
     return dispatch({
       type: UserActionTypes.SET_CURRENT_USER,
       payload: user
@@ -22,7 +25,7 @@ export function signOut() {
     await Auth.signOut();
     return dispatch({
       type: UserActionTypes.SET_CURRENT_USER,
-      payload: null
+      payload: {attributes: {email: null}}
     });
   };
 }

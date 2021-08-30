@@ -39,7 +39,7 @@ const Header = ({userActions, currentUser, hidden}) => {
       </div>
       <div className="options">
         <Link className="option" to="/">
-          {currentUser ? (
+          {currentUser.attributes.email ? (
             <div className="options" onClick={() => userActions.signOut()}>
               SIGN OUT
             </div>
@@ -63,7 +63,4 @@ const mapStateToProps = ({user: {currentUser}, cart: {hidden}}) => ({
   hidden
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
