@@ -10,8 +10,7 @@
       "StackName": "amplify-flora-dev-145849",
       "StackId": "arn:aws:cloudformation:us-east-1:127329511965:stack/amplify-flora-dev-145849/891414e0-e98c-11eb-952d-0e007e135db7",
       "AmplifyAppId": "d36on50haw6tc8",
-      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-flora-dev-145849-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
-      "AuthTriggerTemplateURL": ""
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-flora-dev-145849-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     }
   },
   "api": {
@@ -43,7 +42,7 @@
         "GraphQLAPIEndpointOutput": "https://ro2ne5eti5cwzn5m5obxccfcei.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-axol5rkco5g5rkpozbhbf6b4ky"
       },
-      "lastPushTimeStamp": "2021-08-26T17:52:07.651Z",
+      "lastPushTimeStamp": "2021-08-30T16:35:44.245Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-dev-145849-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiflora"
@@ -68,11 +67,12 @@
         "RootUrl": "https://vwdxk2oqi0.execute-api.us-east-1.amazonaws.com/dev",
         "ApiId": "vwdxk2oqi0"
       },
-      "lastPushTimeStamp": "2021-08-26T17:52:07.653Z",
+      "lastPushTimeStamp": "2021-08-30T16:35:44.247Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-dev-145849-deployment/amplify-cfn-templates/api/floraPayment-cloudformation-template.json",
         "logicalId": "apifloraPayment"
-      }
+      },
+      "lastPushDirHash": "cX8cstw0WWegsDLOLabbp2nngz0="
     }
   },
   "function": {
@@ -87,7 +87,7 @@
         "Name": "paymentProcessor-dev",
         "LambdaExecutionRole": "floraLambdaRole51bc9c02-dev"
       },
-      "lastPushTimeStamp": "2021-08-26T17:52:07.655Z",
+      "lastPushTimeStamp": "2021-08-30T16:35:44.249Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-dev-145849-deployment/amplify-cfn-templates/function/paymentProcessor-cloudformation-template.json",
         "logicalId": "functionpaymentProcessor"
@@ -96,8 +96,9 @@
         "deploymentBucketName": "amplify-flora-dev-145849-deployment",
         "s3Key": "amplify-builds/paymentProcessor-786946663364494d7261-build.zip"
       },
-      "lastBuildTimeStamp": "2021-07-27T20:17:24.789Z",
-      "lastPackageTimeStamp": "2021-07-27T20:17:25.775Z",
+      "lastBuildTimeStamp": "2021-08-30T16:24:29.247Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2021-08-30T16:24:30.152Z",
       "distZipFilename": "paymentProcessor-786946663364494d7261-build.zip",
       "lastPushDirHash": "+rLTaJaKnQ4w898OpaE9f5ueDO0="
     }
@@ -117,11 +118,12 @@
         "IdentityPoolName": "testAuthIdentityPool__dev",
         "UserPoolName": "flora"
       },
-      "lastPushTimeStamp": "2021-08-26T17:52:07.657Z",
+      "lastPushTimeStamp": "2021-08-30T16:35:44.251Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-dev-145849-deployment/amplify-cfn-templates/auth/flora-cloudformation-template.yml",
         "logicalId": "authflora"
-      }
+      },
+      "lastPushDirHash": "rm6yWdVVJVJ+d9tn8G3Qj6B784Y="
     }
   },
   "hosting": {
@@ -130,25 +132,26 @@
       "providerPlugin": "awscloudformation",
       "type": "manual",
       "output": {},
-      "lastPushTimeStamp": "2021-08-26T17:52:07.658Z",
+      "lastPushTimeStamp": "2021-08-30T16:35:44.252Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-dev-145849-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
         "logicalId": "hostingamplifyhosting"
-      }
+      },
+      "lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
     }
   },
   "storage": {
     "floraPhotos": {
       "service": "S3",
       "providerPlugin": "awscloudformation",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-dev-145849-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
-        "logicalId": "storagefloraPhotos"
-      },
-      "lastPushTimeStamp": "2021-08-26T17:52:07.665Z",
       "output": {
         "BucketName": "floraphotos145849-dev",
         "Region": "us-east-1"
+      },
+      "lastPushTimeStamp": "2021-08-30T16:35:44.253Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flora-dev-145849-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "logicalId": "storagefloraPhotos"
       },
       "lastPushDirHash": "3vqujdE3d+J2CSC6EGAeze7mkc0="
     }

@@ -9,6 +9,9 @@ import Cart from "./cart_dropdown";
 import "./styles/header.scss";
 
 const Header = ({userActions, currentUser, hidden}) => {
+  console.log(currentUser);
+  // const user = currentUser.attributes.email;
+  // console.log(user);
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -23,6 +26,16 @@ const Header = ({userActions, currentUser, hidden}) => {
         <Link className="option" to="/contact">
           CONTACT
         </Link>
+      </div>
+      <div className="options">
+        {currentUser.attributes.email == "moiramd@aol.com" ||
+        currentUser.attributes.email == "gdamota@sandiego.edu" ? (
+          <Link className="option" to="/MANAGE">
+            MANAGE
+          </Link>
+        ) : (
+          <div />
+        )}
       </div>
       <div className="options">
         <Link className="option" to="/">
