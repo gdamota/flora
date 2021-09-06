@@ -13,3 +13,34 @@
     justify-content: space-between;
   }
 }
+
+.button{
+  width: 10%;
+  position: sticky;
+  float: right;
+  margin-left: 90%;
+  background-color: white;
+  color: black;
+  border: 1px solid;
+  transition-duration: 0.4s;
+  margin-top: 1%
+}
+
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.go-back-button{
+  width: 10%;
+  position: sticky;
+  float: left;
+  margin-right: 90%;
+  background-color: white;
+  color: black;
+  border: 1px solid;
+  transition-duration: 0.4s;
+}
+
+.go-back-button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

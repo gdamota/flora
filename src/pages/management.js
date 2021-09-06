@@ -68,10 +68,12 @@ class ManagementPage extends React.Component {
       photos: [...this.state.photos, filesList[0]],
       photoStrings: [
         ...this.state.photoStrings,
-        "/photos/" +
+        (
+          "/photos/" +
           COLLECTION_ID_MAP[this.state.categoryID] +
           "/" +
           filesList[0].name
+        ).replace(/\s/g, "_")
       ]
     });
     console.log(this.state);
@@ -79,7 +81,6 @@ class ManagementPage extends React.Component {
 
   async submit(event) {
     event.preventDefault();
-    console.log(this.uploadImage());
     await API.graphql({
       query: createProduct,
       variables: {input: this.formData()}
