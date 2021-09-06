@@ -81,6 +81,7 @@ class ManagementPage extends React.Component {
 
   async submit(event) {
     event.preventDefault();
+    this.uploadImage();
     await API.graphql({
       query: createProduct,
       variables: {input: this.formData()}
