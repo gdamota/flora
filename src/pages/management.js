@@ -46,9 +46,13 @@ class ManagementPage extends React.Component {
 
   uploadImage = () => {
     for (let i in this.state.photoStrings) {
-      Storage.put(this.state.photoStrings[i], this.state.photos[i], {
-        contentType: this.state.photos[i].type
-      })
+      Storage.put(
+        this.state.photoStrings[i].substring(1),
+        this.state.photos[i],
+        {
+          contentType: this.state.photos[i].type
+        }
+      )
         .then(result => {
           this.upload = null;
           console.log({response: "Success uploading file!"});
