@@ -14,8 +14,11 @@ export function getCategorys() {
     categorys.sort(function(a, b) {
       return b.title.localeCompare(a.title);
     });
-    console.log(categorys);
-    const response = await API.graphql(graphqlOperation(listProducts));
+    const response = await await API.graphql({
+      query: listProducts,
+      variables: {limit: 10000}
+    });
+    console.log(response.data.listProducts);
     const catalog = generateCatalog(
       categorys,
       response.data.listProducts.items
