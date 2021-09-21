@@ -48,7 +48,7 @@ const ContactForm = () => {
     <div>
       <form id="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <div>
-          <div>
+          <div className="input-container">
             <input
               type="text"
               name="name"
@@ -56,7 +56,7 @@ const ContactForm = () => {
               placeholder="Name"
             />
           </div>
-          <div>
+          <div className="input-container">
             <input
               type="email"
               name="email"
@@ -66,7 +66,7 @@ const ContactForm = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div className="input-container">
             <input
               type="text"
               name="subject"
@@ -76,10 +76,10 @@ const ContactForm = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div className="input-container">
             <textarea
-              rows={7}
-              cols={25}
+              rows={10}
+              cols={35}
               name="message"
               {...register("message")}
               placeholder="Message"
@@ -105,8 +105,8 @@ const ContactForm = () => {
 class Contact extends Component {
   render() {
     return (
-      <div className="container">
-        <h2>Email Us!</h2>
+      <div>
+        <h1 className="contact-header">Email Us!</h1>
         <div>
           <ContactForm />
         </div>

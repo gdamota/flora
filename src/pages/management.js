@@ -37,7 +37,7 @@ class ManagementPage extends React.Component {
   formData = () => {
     let data = {};
     Object.keys(this.state.fields).map((key, index) => {
-      data[key] = this.state.fields[key];
+      return (data[key] = this.state.fields[key]);
     });
     data["categoryID"] = this.state.categoryID;
     data["photos"] = this.state.photoStrings;
