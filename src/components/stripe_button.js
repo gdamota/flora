@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Paper from "@material-ui/core/Paper";
-import {createOrder} from "..//graphql/mutations";
+import {createOrder} from "../graphql/mutations";
 import {API, Auth} from "aws-amplify";
 import {CardElement, useStripe, useElements} from "@stripe/react-stripe-js";
 import "./styles/stripe.scss";
@@ -14,7 +14,8 @@ const StripeCheckoutForm = ({price, items}) => {
   let [zip, setZip] = useState();
   let [state, setState] = useState();
 
-  async function handleSubmit() {
+  async function handleSubmit(event) {
+    event.preventDefault();
     let stripe_id;
     const paymentData = {
       body: {
@@ -37,7 +38,10 @@ const StripeCheckoutForm = ({price, items}) => {
       address: address,
       zip_code: zip,
       state: state,
-      products: JSON.stringify(items.map(item => [item.name, item.quantity])),
+      products: items.map(item => ({
+        "product name": item.name,
+        quantity: item.quantity
+      })),
       price: price,
       status: "unfiled",
       stripe_id: stripe_id
@@ -48,13 +52,15 @@ const StripeCheckoutForm = ({price, items}) => {
       variables: {input: order}
     }).then(res => {
       console.log(res);
-      alert("Thank you for your purchase!");
+      alert(
+        "Thank you for your purchase! We will email you when your item(s) ship with tracking information. Items usually ship within three business days."
+      );
     });
   }
 
   return (
     <Paper elevation={3}>
-      <div className="payment-form">
+      <form className="payment-form">
         <h3>Shipping Information</h3>
         <input
           className="input"
@@ -112,7 +118,7 @@ const StripeCheckoutForm = ({price, items}) => {
         >
           Pay
         </button>
-      </div>
+      </form>
     </Paper>
   );
 };

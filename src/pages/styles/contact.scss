@@ -1,0 +1,32 @@
+.send-button {
+  display: inline-block;
+  padding: 1px 5px;
+  font-size: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color:black;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  vertical-align: bottom;
+  width: 100px;
+  position:relative;
+}
+
+.send-button:hover {background-color: #0B1359}
+
+.send-button:active {
+  background-color: #0B1359;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.input-container {
+  padding: 3px
+}
+
+.contact-header {
+  padding-left: 3px
+}

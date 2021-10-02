@@ -28,8 +28,8 @@ const Header = ({userActions, currentUser, hidden}) => {
         </Link>
       </div>
       <div className="options">
-        {currentUser.attributes.email == "moiramd@aol.com" ||
-        currentUser.attributes.email == "gdamota@sandiego.edu" ? (
+        {currentUser.attributes.email === "moiramd@aol.com" ||
+        currentUser.attributes.email === "gdamota@sandiego.edu" ? (
           <Link className="option" to="/MANAGE">
             MANAGE
           </Link>

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {useForm} from "react-hook-form";
 import emailjs from "emailjs-com";
 import {ToastContainer, toast} from "react-toastify";
+import "./styles/contact.scss";
 import "react-toastify/dist/ReactToastify.min.css";
 
 const ContactForm = () => {
@@ -47,7 +48,7 @@ const ContactForm = () => {
     <div>
       <form id="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <div>
-          <div>
+          <div className="input-container">
             <input
               type="text"
               name="name"
@@ -55,7 +56,7 @@ const ContactForm = () => {
               placeholder="Name"
             />
           </div>
-          <div>
+          <div className="input-container">
             <input
               type="email"
               name="email"
@@ -65,7 +66,7 @@ const ContactForm = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div className="input-container">
             <input
               type="text"
               name="subject"
@@ -75,9 +76,10 @@ const ContactForm = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div className="input-container">
             <textarea
-              rows={3}
+              rows={10}
+              cols={35}
               name="message"
               {...register("message")}
               placeholder="Message"
@@ -90,7 +92,7 @@ const ContactForm = () => {
             left: "5%"
           }}
         >
-          <button className="button" type="submit">
+          <button className="send-button" type="submit">
             Send
           </button>
         </div>
@@ -103,8 +105,8 @@ const ContactForm = () => {
 class Contact extends Component {
   render() {
     return (
-      <div className="container">
-        <h2>Email Us!</h2>
+      <div>
+        <h1 className="contact-header">Email Us!</h1>
         <div>
           <ContactForm />
         </div>

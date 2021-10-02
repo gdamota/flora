@@ -37,7 +37,7 @@ class ManagementPage extends React.Component {
   formData = () => {
     let data = {};
     Object.keys(this.state.fields).map((key, index) => {
-      data[key] = this.state.fields[key];
+      return (data[key] = this.state.fields[key]);
     });
     data["categoryID"] = this.state.categoryID;
     data["photos"] = this.state.photoStrings;
@@ -46,9 +46,13 @@ class ManagementPage extends React.Component {
 
   uploadImage = () => {
     for (let i in this.state.photoStrings) {
-      Storage.put(this.state.photoStrings[i], this.state.photos[i], {
-        contentType: this.state.photos[i].type
-      })
+      Storage.put(
+        this.state.photoStrings[i].substring(1),
+        this.state.photos[i],
+        {
+          contentType: this.state.photos[i].type
+        }
+      )
         .then(result => {
           this.upload = null;
           console.log({response: "Success uploading file!"});
@@ -64,10 +68,12 @@ class ManagementPage extends React.Component {
       photos: [...this.state.photos, filesList[0]],
       photoStrings: [
         ...this.state.photoStrings,
-        "/photos/" +
+        (
+          "/photos/" +
           COLLECTION_ID_MAP[this.state.categoryID] +
           "/" +
           filesList[0].name
+        ).replace(/\s/g, "_")
       ]
     });
     console.log(this.state);
@@ -75,7 +81,7 @@ class ManagementPage extends React.Component {
 
   async submit(event) {
     event.preventDefault();
-    console.log(this.uploadImage());
+    this.uploadImage();
     await API.graphql({
       query: createProduct,
       variables: {input: this.formData()}

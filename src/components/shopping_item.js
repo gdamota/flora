@@ -15,11 +15,12 @@ const ShoppingItem = ({item, addItem, history, routeName, match}) => {
       return history.push(`/shop/${routeName}/${id}`);
     }
   };
+  const url = photos[0].replace(/\s/g, "%20");
   return (
     <div className="collection-item">
       <div
         className="image"
-        style={{backgroundImage: `url(${process.env.PUBLIC_URL + photos[0]})`}}
+        style={{backgroundImage: `url(${url})`}}
         onClick={onClickFunc}
       />
       <div className="collection=footer">

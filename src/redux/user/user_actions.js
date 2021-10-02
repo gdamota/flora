@@ -9,7 +9,6 @@ export const setCurrentUser = user => ({
 export function getCurrentUser() {
   return async function(dispatch) {
     let user = await Auth.currentUserInfo();
-    console.log(user);
     if (user === null) {
       user = {attributes: {email: null}};
     }
