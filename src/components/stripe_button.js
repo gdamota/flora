@@ -25,6 +25,7 @@ const StripeCheckoutForm = ({price, items}) => {
       }
     };
     await API.post("floraPayment", "/pay", paymentData).then(response => {
+      console.log(response);
       stripe_id = response.body.id;
       stripe.confirmCardPayment(response.body.client_secret, {
         payment_method: {

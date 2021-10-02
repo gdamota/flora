@@ -10,8 +10,7 @@ import {loadStripe} from "@stripe/stripe-js";
 import "./styles/checkout.scss";
 
 const CheckoutPage = ({cartItems, total}) => {
-  const key =
-    "pk_test_51J5CXxBtTeMvZ2U5KSo4RAv4h9sRtAx8dmq5wQx7ff1x0Sm7vsFCOq0vov1Oc2HHvn4wz1PSIdCiHt6qhDHroQhx00Bcg1mjmI";
+  const key = process.env.STRIPE_KEY;
   const stripePromise = loadStripe(key);
   return (
     <Elements stripe={stripePromise}>
