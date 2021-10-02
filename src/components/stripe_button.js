@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Paper from "@material-ui/core/Paper";
-import {createOrder} from "../graphql/mutations";
+import {createOrder, updateProduct} from "../graphql/mutations";
 import {API, Auth} from "aws-amplify";
 import emailjs from "emailjs-com";
 import {CardElement, useStripe, useElements} from "@stripe/react-stripe-js";
@@ -74,6 +74,17 @@ const StripeCheckoutForm = ({price, items}) => {
     } catch (e) {
       console.log(e);
     }
+    await updateQuantity(items);
+  }
+
+  async function updateQuantity(items) {
+    items.forEach((item, i) => {
+      let details = {
+        id: item.id,
+        quantity: item.quantity - 1
+      };
+      API.graphql({query: updateProduct, variables: {input: details}});
+    });
   }
 
   return (
